@@ -1,0 +1,1 @@
+c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\MunchkinUWP.csproj;x86

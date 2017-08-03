@@ -1,0 +1,158 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MunchkinUWP.Pages"
+    xmlns:conv="using:MunchkinUWP.UI.Converter">
+    <GeometryGroup x:Key="eGender_m">
+        <EllipseGeometry Center="100,10" RadiusX="10" RadiusY="10"/>
+        <LineGeometry StartPoint="100,10" EndPoint="100,00"/>
+    </GeometryGroup>
+    <Style x:Name="OverviewGrid" TargetType="Grid">
+        <Setter Property="BorderThickness" Value="6"/>
+        <Setter Property="BorderBrush" Value="IndianRed"/>
+        <Setter Property="CornerRadius" Value="6"/>
+        <Setter Property="Margin" Value="4,0,4,2"/>
+        <Setter Property="Padding" Value="3,0,3,1"/>
+        <Setter Property="Background" Value="{ThemeResource ItemBackgroundBrush}"/>
+    </Style>
+    <Style x:Name="OverviewGrid_Light" TargetType="Grid" BasedOn="{StaticResource OverviewGrid}">
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="CornerRadius" Value="4"/>
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="Padding" Value="2"/>
+    </Style>
+    <Style x:Name="h1LBlock" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+    <Style x:Name="h2LBlock" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="32"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Name="h1DBlock" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+    <Style x:Name="h2DBlock" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="32"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+    <Style x:Name="h1LBox" TargetType="TextBox">
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Name="h2DBox" TargetType="TextBox">
+        <Setter Property="FontSize" Value="32"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Name="h1AppBtn" TargetType="AppBarButton">
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Name="h1AppToggleBtn" TargetType="AppBarToggleButton">
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Name="h2Btn" TargetType="Button">
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="Background" Value="{ThemeResource MainBackground}"/>
+        <Setter Property="BorderBrush" Value="{ThemeResource MainBackgroundOuter}"/>
+        <Setter Property="BorderThickness" Value="7"/>
+        <Setter Property="Margin" Value="4,4,4,4"/>
+    </Style>
+    <Style x:Name="PMBtn" BasedOn="{StaticResource h2Btn}" TargetType="Button">
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Margin" Value="0"/>
+        <!--<Setter Property="MaxWidth" Value="200"/>-->
+        <!--<Setter Property="MaxHeight" Value="200"/>-->
+        <Setter Property="Foreground" Value="{ThemeResource MainFont}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+    <Style x:Name="PMBtnBorder" TargetType="Border">
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Margin" Value="0,10,0,0"/>
+        <Setter Property="MaxWidth" Value="200"/>
+        <Setter Property="MaxHeight" Value="200"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="BorderBrush" Value="{ThemeResource MainBackgroundOuter}"/>
+    </Style>
+    <Style x:Name="h1DPower" TargetType="TextBlock" BasedOn="{StaticResource h1DBlock}">
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="Margin" Value="1,1,15,1"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Name="DetailBG" TargetType="Grid">
+        <Setter Property="BorderBrush" Value="Brown"/>
+        <Setter Property="BorderThickness" Value="20"/>
+        <Setter Property="Background" Value="{ThemeResource ItemBackgroundBrush}"/>
+        <Setter Property="Margin" Value="5,5,15,5"/>
+        <Setter Property="CornerRadius" Value="13"/>
+        <Setter Property="Padding" Value="15"/>
+    </Style>
+    <Style x:Name="GenderBtn" TargetType="Button">
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+    <Style x:Name="TrashBtn" TargetType="Button">
+    </Style>
+    <!-- ================================================================== -->
+    <Style x:Name="h2BattleBtn" TargetType="Button" BasedOn="{StaticResource h2Btn}">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+    </Style>
+    <Style x:Name="h2BattleToggleBtn" TargetType="ToggleButton">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="FontSize" Value="60"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="Background" Value="{ThemeResource MainBackground}"/>
+        <Setter Property="BorderBrush" Value="{ThemeResource MainBackgroundOuter}"/>
+        <Setter Property="BorderThickness" Value="7"/>
+        <Setter Property="Margin" Value="4,4,4,4"/>
+    </Style>
+
+    <Style x:Name="h2BattleTextBlock" TargetType="TextBlock" >
+        <Setter Property="FontSize" Value="60"/>
+    </Style>
+    <Style x:Name="h3BattleTextBlock" TargetType="TextBlock" >
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Name="h1BattleTextBlock" TargetType="TextBlock" >
+        <Setter Property="FontSize" Value="60"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+    <!-- ================================================================== -->
+    <Style x:Name="SettingsSection" TargetType="TextBlock" >
+        <Setter Property="FontSize" Value="60"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+    <Style x:Name="SettingsText" TargetType="TextBlock" >
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+    <Style x:Name="SettingsBtn" TargetType="Button" >
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+    <!-- ================================================================== -->
+    
+    <Style x:Name="EditTip" TargetType="TextBlock">
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    <Style x:Name="StartTipTxT" TargetType="TextBlock">
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="FontSize" Value="30"/>
+        <!--<Setter Property="FontFamily" Value="Comic Sans MS[Verdana]"/>-->
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+</ResourceDictionary>

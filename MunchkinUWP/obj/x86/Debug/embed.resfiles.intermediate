@@ -1,0 +1,13 @@
+App.xbf
+UI\Controls\PivotHeader.xbf
+UI\Controls\Random.xbf
+UI\Controls\YesNo.xbf
+UI\Pages\BattlePage.xbf
+UI\Pages\MainPage.xbf
+UI\Pages\RemotePage.xbf
+UI\Pages\Settings.xbf
+UI\Ressources\ResourceDictionary_App.xbf
+UI\Ressources\ResourceDictionary_Settings.xbf
+UI\Ressources\Styles.xbf
+UI\Ressources\ThemeDark.xbf
+UI\Ressources\ThemeGreen.xbf

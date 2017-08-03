@@ -1,0 +1,342 @@
+﻿<Page x:ConnectionId='1'
+    x:Name="MainPageRoot"
+    x:Class="MunchkinUWP.Pages.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewmodels="using:MunchkinUWP.Model"
+    xmlns:converter="using:MunchkinUWP.UI.Converter"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    NavigationCacheMode="Enabled"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition />
+        </TransitionCollection>
+    </Page.Transitions>
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Ressources/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <converter:Texts x:Key="Texts"/>
+            <converter:io_Bool x:Key="io_Bool"/>
+            <converter:CurrentMunchkinConverter x:Key="CurrentMunchkinConverter"/>
+            <DataTemplate x:Key="lstMunchkin"                                  >
+                <Grid x:ConnectionId='32' Width="Auto" Style="{StaticResource OverviewGrid_Light}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" x:Name="NameDisplay" Style="{StaticResource h1LBlock}">
+                            <Run x:ConnectionId='34'                                     />
+                            <Run x:Uid="DoppelPunkt"/>
+                            <Run x:ConnectionId='35'                                    />
+                    </TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Style="{ThemeResource h2LBlock}" >
+                            <Run x:Uid="Munchkin_Level"/>
+                        <Run x:Uid="DoppelPunkt"/>
+                            <Run x:ConnectionId='33'                                    />
+                    </TextBlock>
+                </Grid>
+            </DataTemplate>
+            <Style x:ConnectionId='2' x:Name="Gender" TargetType="Path">
+                <Setter Property="StrokeThickness" Value="5"/>
+                <Setter Property="Width" Value="100"/>
+                <Setter Property="Height" Value="100"/>
+            </Style>
+            <DataTemplate x:ConnectionId='3' x:Name="GenderMale">
+                <Path StrokeEndLineCap="Round" Stroke="Blue" Style="{StaticResource Gender}" >
+                    <Path.Data >
+                        <GeometryGroup FillRule="EvenOdd">
+                            <EllipseGeometry Center="30,70" RadiusX="25" RadiusY="25"/>
+                            <LineGeometry StartPoint="46,54" EndPoint="95,5"/>
+                            <LineGeometry StartPoint="95,5" EndPoint="70,15"/>
+                            <LineGeometry StartPoint="95,5" EndPoint="85,30"/>
+                        </GeometryGroup>
+                    </Path.Data>
+                </Path>
+            </DataTemplate>
+            <DataTemplate x:ConnectionId='4' x:Name="GenderFemale">
+                <Path Stroke="Pink" Style="{StaticResource Gender}" >
+                    <Path.Data>
+                        <GeometryGroup FillRule="Nonzero">
+                            <EllipseGeometry Center="50,28" RadiusX="23" RadiusY="23"/>
+                            <LineGeometry StartPoint="50,51" EndPoint="50,95"/>
+                            <LineGeometry StartPoint="30,72" EndPoint="70,72"/>
+                        </GeometryGroup>
+                    </Path.Data>
+                </Path>
+            </DataTemplate>
+            <DataTemplate x:ConnectionId='5' x:Name="GenderNone">
+                <Path Stroke="Violet" Style="{StaticResource Gender}" >
+                    <Path.Data>
+                        <GeometryGroup FillRule="EvenOdd">
+                            <LineGeometry StartPoint="60,40" EndPoint="93,7"/>
+                            <LineGeometry StartPoint="95,5" EndPoint="70,15"/>
+                            <LineGeometry StartPoint="95,5" EndPoint="85,30"/>
+                            <EllipseGeometry Center="50,50" RadiusX="16" RadiusY="16"/>
+                            <LineGeometry StartPoint="50,67" EndPoint="50,95"/>
+                            <LineGeometry StartPoint="30,81" EndPoint="70,81"/>
+                        </GeometryGroup>
+                    </Path.Data>
+                </Path>
+            </DataTemplate>
+            <DataTemplate x:Key="DetailContentTemplate"                                 >
+
+                <Grid x:ConnectionId='21' Style="{StaticResource DetailBG}"
+                              x:Name="DetailMainGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition x:Name="StatsAndButtons" Height="Auto" />
+                        <RowDefinition x:Name="Notes" Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <!--head-->
+                        <TextBlock x:ConnectionId='22' Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource h1DPower}"                                     />
+                        <Viewbox MaxHeight="{Binding ElementName=Munchkin_PowerTxTBlck, Path=ActualHeight}" Grid.Column="0" Grid.Row="1">
+                            <SymbolIcon x:ConnectionId='31' Symbol="Emoji"                                                                                                              />
+                        </Viewbox>
+                        <TextBlock x:Name="Munchkin_PowerTxTBlck" Grid.Column="1" Grid.Row="1" Style="{StaticResource h1DBlock}" >
+                                <Run x:Uid="Munchkin_Power"/>
+                                <Run x:ConnectionId='30'                                    />
+                        </TextBlock>
+                        <Viewbox MaxHeight="130" Grid.Column="2" Grid.RowSpan="2" >
+                            <ContentPresenter x:ConnectionId='29' 
+                            x:Name="Gender" 
+                            Background="Transparent" 
+                                                                        >
+                                <!--<ContentPresenter.RenderTransform>
+                                <ScaleTransform ScaleX="0.5" CenterX="50" CenterY="50"/>
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+
+                            </ContentPresenter.RenderTransform>-->
+                            </ContentPresenter>
+                        </Viewbox >
+                        <!-- +/- Buttons and Text-->
+                        <TextBlock VerticalAlignment="Center" Style="{StaticResource h2DBlock}" Grid.Row="3" Grid.Column="1">
+                                    <Run x:Uid="Munchkin_Gear"/>
+                                    <Run x:ConnectionId='28'                                   />
+                        </TextBlock>
+                        <TextBlock VerticalAlignment="Center" Style="{StaticResource h2DBlock}" Grid.Row="2" Grid.Column="1">
+                                    <Run x:Uid="Munchkin_Level"/>
+                                    <Run x:ConnectionId='27'                                    />
+                        </TextBlock>
+                        <Border Style="{StaticResource PMBtnBorder}" Grid.Row="2" Grid.Column="0">
+                            <Viewbox>
+                                <Button x:ConnectionId='26'                                  Style="{StaticResource PMBtn}" x:Uid="BtnLevelLess" FontFamily="Segoe MDL2 Assets" Content="&#xE738;"                            />
+                            </Viewbox>
+                        </Border>
+                        <Border Style="{StaticResource PMBtnBorder}" Grid.Row="3" Grid.Column="0">
+                            <Viewbox>
+                                <Button x:ConnectionId='25'                                  Style="{StaticResource PMBtn}"  x:Uid="BtnGearLess" FontFamily="Segoe MDL2 Assets" Content="&#xE738;"                          />
+                            </Viewbox>
+                        </Border>
+                        <Border Style="{StaticResource PMBtnBorder}" Grid.Row="2" Grid.Column="2">
+                            <Viewbox>
+                                <Button x:ConnectionId='24'                                  Style="{StaticResource PMBtn}" x:Uid="BtnLevelMore" FontFamily="Segoe MDL2 Assets" Content="&#xE710;"                           />
+                            </Viewbox>
+                        </Border>
+                        <Border Style="{StaticResource PMBtnBorder}" Grid.Row="3" Grid.Column="2">
+                            <Viewbox>
+                                <Button x:ConnectionId='23'                                  Style="{StaticResource PMBtn}" x:Uid="BtnGearMore" FontFamily="Segoe MDL2 Assets" Content="&#xE710;"                          />
+                            </Viewbox>
+                        </Border>
+                    </Grid>
+                    <!-- Notes -->
+                    <!--<InkToolbar VerticalAlignment="Top" HorizontalAlignment="Right" />-->
+                    <!--<InkCanvas x:Name="inkCanvas"/>-->
+                </Grid>
+
+            </DataTemplate>
+            <DataTemplate x:ConnectionId='6' x:Name="MasterListViewItemTemplate_Normal"                                 >
+                <Grid x:ConnectionId='17' Style="{StaticResource OverviewGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:ConnectionId='18' Grid.ColumnSpan="2" x:Uid="NameDisplay"                                     
+                            Style="{StaticResource h1LBlock}"/>
+
+                    <TextBlock Grid.Row="1" Style="{ThemeResource h2LBlock}" >
+                            <Run x:Uid="Munchkin_Level"/>
+                            <Run x:Uid="DoppelPunkt"/>
+                            <Run x:ConnectionId='20'                                    />
+                    </TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="1"
+                    Style="{ThemeResource h2LBlock}" >
+                            <Run x:Uid="Munchkin_Power"/>
+                            <Run x:Uid="DoppelPunkt"/>
+                            <Run x:ConnectionId='19'                                    />
+                    </TextBlock>
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:ConnectionId='7' x:Name="MasterListViewItemTemplate_Light"                                 >
+                <Grid x:ConnectionId='12' Style="{StaticResource OverviewGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:ConnectionId='13' x:Uid="NameDisplay"                                     
+                            Style="{StaticResource h1LBlock}"/>
+                    <TextBlock Grid.Column="1" Style="{ThemeResource h2LBlock}" >
+                            <Run x:ConnectionId='14'                                     FontWeight="Bold"/>
+                            <Run Text="("/>
+                            <Run x:ConnectionId='15'                                    />
+                            <Run Text="+"/>
+                            <Run x:ConnectionId='16'                                   />
+                            <Run Text=")"/>
+                    </TextBlock>
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:ConnectionId='8' x:Name="MasterListViewItemTemplate_Edit"                                 >
+                <Grid x:ConnectionId='9' Style="{StaticResource OverviewGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Uid="BtnOverviewMove" FontFamily="Segoe MDL2 Assets" Text="&#xE8CB;" VerticalAlignment="Center" Padding="6,0,8,0"></TextBlock>
+                    <TextBox x:ConnectionId='10' Grid.Column="1"
+                                                        
+                    x:Uid="NameEdit"
+                    Style="{StaticResource h1LBox}"/>
+
+                    <Button x:ConnectionId='11' Grid.Column="2" x:Uid="BtnOverviewDelete" FontFamily="Segoe MDL2 Assets" Content="&#xE74D;"                                  Style="{StaticResource TrashBtn}"/>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Page.Resources>
+    <SplitView x:ConnectionId='36' x:Name="RootView" PanePlacement="Left"                                    CompactPaneLength="1"  IsPaneOpen="True" DisplayMode="CompactInline" MinWidth="1" >
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:ConnectionId='37' x:Name="AdaptiveStates"                                                         >
+                <VisualState x:ConnectionId='38' x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="RootView.OpenPaneLength" Value="360" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:ConnectionId='39' x:Name="DetailState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="RootView.IsPaneOpen" Value="False" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:ConnectionId='40' x:Name="OverviewState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="RootView.IsPaneOpen" Value="True" />
+                    </VisualState.Setters>
+                </VisualState>
+
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <SplitView.Pane>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition x:ConnectionId='41' x:Name="EditTip" Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <CommandBar x:ConnectionId='42' x:Name="CommandbarOrder" Grid.Column="0" Grid.Row="0" MinWidth="360">
+                    <AppBarToggleButton x:ConnectionId='53' Name="Overview_OrderBtn_LvL"  x:Uid="Overview_OrderBtn_LvL" Icon="Sort"                                    />
+                    <AppBarToggleButton x:ConnectionId='54' Name="Overview_OrderBtn_Power" x:Uid="Overview_OrderBtn_Power" Icon="Sort"                                      />
+                    <AppBarToggleButton x:ConnectionId='55' Name="Overview_OrderBtn_Alpha" x:Uid="Overview_OrderBtn_Alpha" Icon="Sort"                                      />
+                    <AppBarToggleButton x:ConnectionId='56' Name="Overview_OrderBtn_Order" x:Uid="Overview_OrderBtn_Order" Icon="Sort"                                      />
+                </CommandBar>
+                <ListView x:ConnectionId='43'
+                    x:Name="MasterListView"
+                    Grid.Row="1"
+                    ItemContainerTransitions="{x:Null}"
+                    ItemTemplate="{StaticResource MasterListViewItemTemplate_Normal}"
+                    IsItemClickEnabled="True"
+                    ReorderMode="Enabled"
+                                                        
+                                                                             
+                                                                                                                                        
+                    >
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+                <TextBlock x:ConnectionId='44' x:Name="EditTipTxT" x:Uid="EditTip" Style="{StaticResource EditTip}" TextWrapping="WrapWholeWords" Visibility="Collapsed" Grid.Column="0" Grid.Row="2" />
+                <CommandBar x:ConnectionId='45' x:Name="CommandbarControl" MinWidth="360" Grid.Column="0" Grid.Row="3" HorizontalContentAlignment="Center">
+                    <AppBarButton x:ConnectionId='47' x:Uid="AppBarButton_Remote"  x:Name="AppBarButton_Remote" Icon="Remote"                                  />
+                    <AppBarButton x:ConnectionId='48' x:Uid="AppBarButton_Settings"  x:Name="AppBarButton_Settings" Icon="Setting"                                    />
+                    <AppBarSeparator x:ConnectionId='49' x:Uid="AppBarSeperator1" x:Name="AppBarSeperator1"/>
+                    <AppBarButton x:ConnectionId='50' x:Uid="AppBarButton_Add" x:Name="AppBarButton_Add" Icon="AddFriend"                             />
+                    <AppBarButton x:ConnectionId='51' x:Uid="AppBarButton_Edit"  x:Name="AppBarButton_Edit" Icon="Edit"                                />
+                    <AppBarButton x:ConnectionId='52' x:Uid="AppBarButton_EditFinish"  x:Name="AppBarButton_EditFinish" Icon="Accept"                                       Visibility="Collapsed"/>
+                </CommandBar>
+                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="4">
+                    <!--<TextBlock x:Name="StartTipTxT" x:Uid="StartTipTxT" Style="{StaticResource StartTipTxT}" TextWrapping="WrapWholeWords" Visibility="Collapsed" HorizontalAlignment="Stretch" VerticalAlignment="Center" />-->
+                    <Button x:ConnectionId='46' x:Name="StartTipTxT" Content="&#xE710;" FontFamily="Segoe MDL2 Assets" FontSize="100" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"                             >
+                        <!--<Button.RenderTransform>
+                    -->
+                        <!--<ScaleTransform ScaleX="10" ScaleY="10"/>-->
+                        <!--
+                </Button.RenderTransform>-->
+                    </Button>
+                </Border>
+            </Grid>
+        </SplitView.Pane>
+        <Grid x:ConnectionId='57' x:Name="MainGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Pivot x:ConnectionId='58' x:Name="DetailPivotView"
+                                                                         
+                Grid.Row="0" 
+                                                                                                                                    
+                ItemTemplate="{StaticResource DetailContentTemplate}"
+            >
+                <Pivot.HeaderTemplate>
+                    <DataTemplate x:Name="PivotHeaderDataTemplate"                                 >
+                        <Border x:ConnectionId='62' CornerRadius="5" Background="{ThemeResource ItemBackgroundBrush}" BorderThickness="1" BorderBrush="Black" Padding="3,1,3,2">
+                            <TextBlock x:ConnectionId='63' x:Name="TextName"                                     />
+                        </Border>
+                    </DataTemplate>
+                </Pivot.HeaderTemplate>
+            </Pivot>
+            <CommandBar x:ConnectionId='59' x:Name="CommandbarMunchkin" Grid.Row="1">
+                <AppBarButton x:ConnectionId='60' HorizontalAlignment="Left" Name="BtnBattle" x:Uid="BtnBattle" Icon="People"                                  />
+                <AppBarButton x:ConnectionId='61' Name="BtnRandom" x:Uid="BtnRandom" Content="&#x2682;"                                  />
+            </CommandBar>
+        </Grid>
+    </SplitView>
+</Page>
+

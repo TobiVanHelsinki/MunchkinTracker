@@ -1,0 +1,341 @@
+﻿<Page
+    x:Name="MainPageRoot"
+    x:Class="MunchkinUWP.Pages.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewmodels="using:MunchkinUWP.Model"
+    xmlns:converter="using:MunchkinUWP.UI.Converter"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    NavigationCacheMode="Enabled"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition />
+        </TransitionCollection>
+    </Page.Transitions>
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Ressources/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <converter:Texts x:Key="Texts"/>
+            <converter:io_Bool x:Key="io_Bool"/>
+            <converter:CurrentMunchkinConverter x:Key="CurrentMunchkinConverter"/>
+            <DataTemplate x:Key="lstMunchkin"  x:DataType="viewmodels:Munchkin">
+                <Grid Width="Auto" Style="{StaticResource OverviewGrid_Light}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" x:Name="NameDisplay" Style="{StaticResource h1LBlock}">
+                            <Run Text="{x:Bind strName, Mode=OneWay}"/>
+                            <Run x:Uid="DoppelPunkt"/>
+                            <Run Text="{x:Bind nPower, Mode=OneWay}"/>
+                    </TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Style="{ThemeResource h2LBlock}" >
+                            <Run x:Uid="Munchkin_Level"/>
+                        <Run x:Uid="DoppelPunkt"/>
+                            <Run Text="{x:Bind nLevel, Mode=OneWay}"/>
+                    </TextBlock>
+                </Grid>
+            </DataTemplate>
+            <Style x:Name="Gender" TargetType="Path">
+                <Setter Property="StrokeThickness" Value="5"/>
+                <Setter Property="Width" Value="100"/>
+                <Setter Property="Height" Value="100"/>
+            </Style>
+            <DataTemplate x:Name="GenderMale">
+                <Path StrokeEndLineCap="Round" Stroke="Blue" Style="{StaticResource Gender}" >
+                    <Path.Data >
+                        <GeometryGroup FillRule="EvenOdd">
+                            <EllipseGeometry Center="30,70" RadiusX="25" RadiusY="25"/>
+                            <LineGeometry StartPoint="46,54" EndPoint="95,5"/>
+                            <LineGeometry StartPoint="95,5" EndPoint="70,15"/>
+                            <LineGeometry StartPoint="95,5" EndPoint="85,30"/>
+                        </GeometryGroup>
+                    </Path.Data>
+                </Path>
+            </DataTemplate>
+            <DataTemplate x:Name="GenderFemale">
+                <Path Stroke="Pink" Style="{StaticResource Gender}" >
+                    <Path.Data>
+                        <GeometryGroup FillRule="Nonzero">
+                            <EllipseGeometry Center="50,28" RadiusX="23" RadiusY="23"/>
+                            <LineGeometry StartPoint="50,51" EndPoint="50,95"/>
+                            <LineGeometry StartPoint="30,72" EndPoint="70,72"/>
+                        </GeometryGroup>
+                    </Path.Data>
+                </Path>
+            </DataTemplate>
+            <DataTemplate x:Name="GenderNone">
+                <Path Stroke="Violet" Style="{StaticResource Gender}" >
+                    <Path.Data>
+                        <GeometryGroup FillRule="EvenOdd">
+                            <LineGeometry StartPoint="60,40" EndPoint="93,7"/>
+                            <LineGeometry StartPoint="95,5" EndPoint="70,15"/>
+                            <LineGeometry StartPoint="95,5" EndPoint="85,30"/>
+                            <EllipseGeometry Center="50,50" RadiusX="16" RadiusY="16"/>
+                            <LineGeometry StartPoint="50,67" EndPoint="50,95"/>
+                            <LineGeometry StartPoint="30,81" EndPoint="70,81"/>
+                        </GeometryGroup>
+                    </Path.Data>
+                </Path>
+            </DataTemplate>
+            <DataTemplate x:Key="DetailContentTemplate" x:DataType="viewmodels:Munchkin">
+
+                <Grid Style="{StaticResource DetailBG}"
+                              x:Name="DetailMainGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition x:Name="StatsAndButtons" Height="Auto" />
+                        <RowDefinition x:Name="Notes" Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <!--head-->
+                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource h1DPower}" Text="{x:Bind strName, Mode=OneWay}"/>
+                        <Viewbox MaxHeight="{Binding ElementName=Munchkin_PowerTxTBlck, Path=ActualHeight}" Grid.Column="0" Grid.Row="1">
+                            <SymbolIcon Symbol="Emoji" Visibility="{x:Bind bHasWon, Mode=OneWay, Converter={StaticResource io_Bool}, ConverterParameter=Visibility}"/>
+                        </Viewbox>
+                        <TextBlock x:Name="Munchkin_PowerTxTBlck" Grid.Column="1" Grid.Row="1" Style="{StaticResource h1DBlock}" >
+                                <Run x:Uid="Munchkin_Power"/>
+                                <Run Text="{x:Bind nPower, Mode=OneWay}"/>
+                        </TextBlock>
+                        <Viewbox MaxHeight="130" Grid.Column="2" Grid.RowSpan="2" >
+                            <ContentPresenter 
+                            x:Name="Gender" 
+                            Background="Transparent" 
+                            Tapped="SwitchGender" Loaded="Gender_Loaded">
+                                <!--<ContentPresenter.RenderTransform>
+                                <ScaleTransform ScaleX="0.5" CenterX="50" CenterY="50"/>
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+
+                            </ContentPresenter.RenderTransform>-->
+                            </ContentPresenter>
+                        </Viewbox >
+                        <!-- +/- Buttons and Text-->
+                        <TextBlock VerticalAlignment="Center" Style="{StaticResource h2DBlock}" Grid.Row="3" Grid.Column="1">
+                                    <Run x:Uid="Munchkin_Gear"/>
+                                    <Run Text="{x:Bind nGear, Mode=OneWay}"/>
+                        </TextBlock>
+                        <TextBlock VerticalAlignment="Center" Style="{StaticResource h2DBlock}" Grid.Row="2" Grid.Column="1">
+                                    <Run x:Uid="Munchkin_Level"/>
+                                    <Run Text="{x:Bind nLevel, Mode=OneWay}"/>
+                        </TextBlock>
+                        <Border Style="{StaticResource PMBtnBorder}" Grid.Row="2" Grid.Column="0">
+                            <Viewbox>
+                                <Button SizeChanged="Button_SizeChanged" Style="{StaticResource PMBtn}" x:Uid="BtnLevelLess" FontFamily="Segoe MDL2 Assets" Content="&#xE738;" Click="BtnLevelLess_Click" />
+                            </Viewbox>
+                        </Border>
+                        <Border Style="{StaticResource PMBtnBorder}" Grid.Row="3" Grid.Column="0">
+                            <Viewbox>
+                                <Button SizeChanged="Button_SizeChanged" Style="{StaticResource PMBtn}"  x:Uid="BtnGearLess" FontFamily="Segoe MDL2 Assets" Content="&#xE738;" Click="BtnGearLess_Click"/>
+                            </Viewbox>
+                        </Border>
+                        <Border Style="{StaticResource PMBtnBorder}" Grid.Row="2" Grid.Column="2">
+                            <Viewbox>
+                                <Button SizeChanged="Button_SizeChanged" Style="{StaticResource PMBtn}" x:Uid="BtnLevelMore" FontFamily="Segoe MDL2 Assets" Content="&#xE710;" Click="BtnLevelMore_Click"/>
+                            </Viewbox>
+                        </Border>
+                        <Border Style="{StaticResource PMBtnBorder}" Grid.Row="3" Grid.Column="2">
+                            <Viewbox>
+                                <Button SizeChanged="Button_SizeChanged" Style="{StaticResource PMBtn}" x:Uid="BtnGearMore" FontFamily="Segoe MDL2 Assets" Content="&#xE710;" Click="BtnGearMore_Click"/>
+                            </Viewbox>
+                        </Border>
+                    </Grid>
+                    <!-- Notes -->
+                    <!--<InkToolbar VerticalAlignment="Top" HorizontalAlignment="Right" />-->
+                    <!--<InkCanvas x:Name="inkCanvas"/>-->
+                </Grid>
+
+            </DataTemplate>
+            <DataTemplate x:Name="MasterListViewItemTemplate_Normal" x:DataType="viewmodels:Munchkin">
+                <Grid Style="{StaticResource OverviewGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.ColumnSpan="2" x:Uid="NameDisplay" Text="{x:Bind strName, Mode=OneWay}"
+                            Style="{StaticResource h1LBlock}"/>
+
+                    <TextBlock Grid.Row="1" Style="{ThemeResource h2LBlock}" >
+                            <Run x:Uid="Munchkin_Level"/>
+                            <Run x:Uid="DoppelPunkt"/>
+                            <Run Text="{x:Bind nLevel, Mode=OneWay}"/>
+                    </TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="1"
+                    Style="{ThemeResource h2LBlock}" >
+                            <Run x:Uid="Munchkin_Power"/>
+                            <Run x:Uid="DoppelPunkt"/>
+                            <Run Text="{x:Bind nPower, Mode=OneWay}"/>
+                    </TextBlock>
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Name="MasterListViewItemTemplate_Light" x:DataType="viewmodels:Munchkin">
+                <Grid Style="{StaticResource OverviewGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Uid="NameDisplay" Text="{x:Bind strName, Mode=OneWay}"
+                            Style="{StaticResource h1LBlock}"/>
+                    <TextBlock Grid.Column="1" Style="{ThemeResource h2LBlock}" >
+                            <Run Text="{x:Bind nPower, Mode=OneWay}" FontWeight="Bold"/>
+                            <Run Text="("/>
+                            <Run Text="{x:Bind nLevel, Mode=OneWay}"/>
+                            <Run Text="+"/>
+                            <Run Text="{x:Bind nGear, Mode=OneWay}"/>
+                            <Run Text=")"/>
+                    </TextBlock>
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Name="MasterListViewItemTemplate_Edit" x:DataType="viewmodels:Munchkin">
+                <Grid Style="{StaticResource OverviewGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Uid="BtnOverviewMove" FontFamily="Segoe MDL2 Assets" Text="&#xE8CB;" VerticalAlignment="Center" Padding="6,0,8,0"></TextBlock>
+                    <TextBox Grid.Column="1"
+                    Text="{x:Bind strName, Mode=TwoWay}"
+                    x:Uid="NameEdit"
+                    Style="{StaticResource h1LBox}"/>
+
+                    <Button Grid.Column="2" x:Uid="BtnOverviewDelete" FontFamily="Segoe MDL2 Assets" Content="&#xE74D;" Click="BtnOverviewDelete_Click"  Style="{StaticResource TrashBtn}"/>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Page.Resources>
+    <SplitView x:Name="RootView" PanePlacement="Left" SizeChanged="RootView_SizeChanged" CompactPaneLength="1"  IsPaneOpen="True" DisplayMode="CompactInline" MinWidth="1" >
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="AdaptiveStates" CurrentStateChanged="AdaptiveStates_CurrentStateChanged">
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="RootView.OpenPaneLength" Value="360" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="DetailState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="RootView.IsPaneOpen" Value="False" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="OverviewState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="RootView.IsPaneOpen" Value="True" />
+                    </VisualState.Setters>
+                </VisualState>
+
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <SplitView.Pane>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition x:Name="EditTip" Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <CommandBar x:Name="CommandbarOrder" Grid.Column="0" Grid.Row="0" MinWidth="360">
+                    <AppBarToggleButton Name="Overview_OrderBtn_LvL"  x:Uid="Overview_OrderBtn_LvL" Icon="Sort" Click="Overview_OrderBtn_LvL_Click"/>
+                    <AppBarToggleButton Name="Overview_OrderBtn_Power" x:Uid="Overview_OrderBtn_Power" Icon="Sort" Click="Overview_OrderBtn_Power_Click"/>
+                    <AppBarToggleButton Name="Overview_OrderBtn_Alpha" x:Uid="Overview_OrderBtn_Alpha" Icon="Sort" Click="Overview_OrderBtn_Alpha_Click"/>
+                    <AppBarToggleButton Name="Overview_OrderBtn_Order" x:Uid="Overview_OrderBtn_Order" Icon="Sort" Click="Overview_OrderBtn_Order_Click"/>
+                </CommandBar>
+                <ListView
+                    x:Name="MasterListView"
+                    Grid.Row="1"
+                    ItemContainerTransitions="{x:Null}"
+                    ItemTemplate="{StaticResource MasterListViewItemTemplate_Normal}"
+                    IsItemClickEnabled="True"
+                    ReorderMode="Enabled"
+                    ItemClick="MasterListView_ItemClick"
+                    ItemsSource="{x:Bind ViewModel.lstMunchkin, Mode=OneWay}"
+                    SelectedItem="{x:Bind ViewModel.oCurrentMunchkin, Mode=TwoWay, Converter={StaticResource CurrentMunchkinConverter}}"
+                    >
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+                <TextBlock x:Name="EditTipTxT" x:Uid="EditTip" Style="{StaticResource EditTip}" TextWrapping="WrapWholeWords" Visibility="Collapsed" Grid.Column="0" Grid.Row="2" />
+                <CommandBar x:Name="CommandbarControl" MinWidth="360" Grid.Column="0" Grid.Row="3" HorizontalContentAlignment="Center">
+                    <AppBarButton x:Uid="AppBarButton_Remote"  x:Name="AppBarButton_Remote" Icon="Remote" Click="AppBarButton_Remote_Click"/>
+                    <AppBarButton x:Uid="AppBarButton_Settings"  x:Name="AppBarButton_Settings" Icon="Setting" Click="AppBarButton_Settings_Click"/>
+                    <AppBarSeparator x:Uid="AppBarSeperator1" x:Name="AppBarSeperator1"/>
+                    <AppBarButton x:Uid="AppBarButton_Add" x:Name="AppBarButton_Add" Icon="AddFriend" Click="BtnOverviewAdd_Click"/>
+                    <AppBarButton x:Uid="AppBarButton_Edit"  x:Name="AppBarButton_Edit" Icon="Edit" Click="AppBarButton_Edit_Click"/>
+                    <AppBarButton x:Uid="AppBarButton_EditFinish"  x:Name="AppBarButton_EditFinish" Icon="Accept" Click="AppBarButton_EditFinish_Click" Visibility="Collapsed"/>
+                </CommandBar>
+                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="4">
+                    <!--<TextBlock x:Name="StartTipTxT" x:Uid="StartTipTxT" Style="{StaticResource StartTipTxT}" TextWrapping="WrapWholeWords" Visibility="Collapsed" HorizontalAlignment="Stretch" VerticalAlignment="Center" />-->
+                    <Button x:Name="StartTipTxT" Content="&#xE710;" FontFamily="Segoe MDL2 Assets" FontSize="100" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BtnOverviewAdd_Click">
+                        <!--<Button.RenderTransform>
+                    -->
+                        <!--<ScaleTransform ScaleX="10" ScaleY="10"/>-->
+                        <!--
+                </Button.RenderTransform>-->
+                    </Button>
+                </Border>
+            </Grid>
+        </SplitView.Pane>
+        <Grid x:Name="MainGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Pivot x:Name="DetailPivotView"
+                ItemsSource="{x:Bind ViewModel.lstMunchkin, Mode=OneWay}"
+                Grid.Row="0" 
+                SelectedItem="{x:Bind ViewModel.oCurrentMunchkin, Mode=TwoWay, Converter={StaticResource CurrentMunchkinConverter}}"
+                ItemTemplate="{StaticResource DetailContentTemplate}"
+            >
+                <Pivot.HeaderTemplate>
+                    <DataTemplate x:Name="PivotHeaderDataTemplate" x:DataType="viewmodels:Munchkin">
+                        <Border CornerRadius="5" Background="{ThemeResource ItemBackgroundBrush}" BorderThickness="1" BorderBrush="Black" Padding="3,1,3,2">
+                            <TextBlock x:Name="TextName" Text="{x:Bind strName, Mode=OneWay}"/>
+                        </Border>
+                    </DataTemplate>
+                </Pivot.HeaderTemplate>
+            </Pivot>
+            <CommandBar x:Name="CommandbarMunchkin" Grid.Row="1">
+                <AppBarButton HorizontalAlignment="Left" Name="BtnBattle" x:Uid="BtnBattle" Icon="People" Click="AppBarButton_Battle_Click"/>
+                <AppBarButton Name="BtnRandom" x:Uid="BtnRandom" Content="&#x2682;" Click="AppBarButton_Random_Click"/>
+            </CommandBar>
+        </Grid>
+    </SplitView>
+</Page>
