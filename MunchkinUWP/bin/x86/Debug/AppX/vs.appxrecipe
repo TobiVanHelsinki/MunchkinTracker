@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>d693fca6-2e3b-4c4c-9ffd-9ad36795eab4</PackageIdentityName>
     <PackageIdentityPublisher>CN=D02849C2-745B-495E-891A-5F7C07581158</PackageIdentityPublisher>
-    <IntermediateOutputPath>c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\bin\x86\Debug\AppX</LayoutDir>
     <RegisteredManifestChecksum>B3874140695A7A50212165D855326A1417214B978FF14560C3F3EFC03AADF0AA</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>21863TobivanHelsinki.MunchkinTrackerX_1.5.3.0_x86__v6radffa4gtym</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>21863TobivanHelsinki.MunchkinTrackerX_v6radffa4gtym!App</RegisteredUserModeAppID>
@@ -28,16 +28,16 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-07-21T00:21:28.610</Modified>
+      <Modified>2017-08-03T08:00:26.404</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\bin\x86\Debug\MunchkinUWP.exe">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\bin\x86\Debug\MunchkinUWP.exe">
       <PackagePath>entrypoint\MunchkinUWP.exe</PackagePath>
-      <Modified>2017-07-21T00:21:27.587</Modified>
+      <Modified>2017-08-03T08:00:07.629</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tobiv\.nuget\packages\Microsoft.CSharp\4.3.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -527,252 +527,252 @@
       <PackagePath>ThemeManagerRt.dll</PackagePath>
       <Modified>2015-07-23T05:49:30.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\NewStoreLogo.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\NewStoreLogo.scale-100.png">
       <PackagePath>Assets\LogoImages\NewStoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-03-18T23:17:34.693</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\NewStoreLogo.scale-125.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\NewStoreLogo.scale-125.png">
       <PackagePath>Assets\LogoImages\NewStoreLogo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-03-18T23:17:34.630</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\NewStoreLogo.scale-150.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\NewStoreLogo.scale-150.png">
       <PackagePath>Assets\LogoImages\NewStoreLogo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-03-18T23:17:34.690</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\NewStoreLogo.scale-200.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\NewStoreLogo.scale-200.png">
       <PackagePath>Assets\LogoImages\NewStoreLogo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-03-18T23:17:34.712</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\NewStoreLogo.scale-400.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\NewStoreLogo.scale-400.png">
       <PackagePath>Assets\LogoImages\NewStoreLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-03-18T23:17:34.684</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\SplashScreen.scale-100.png">
       <PackagePath>Assets\LogoImages\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.655</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\SplashScreen.scale-125.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\SplashScreen.scale-125.png">
       <PackagePath>Assets\LogoImages\SplashScreen.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.690</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\SplashScreen.scale-150.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\SplashScreen.scale-150.png">
       <PackagePath>Assets\LogoImages\SplashScreen.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.727</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\SplashScreen.scale-200.png">
       <PackagePath>Assets\LogoImages\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.779</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\SplashScreen.scale-400.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\SplashScreen.scale-400.png">
       <PackagePath>Assets\LogoImages\SplashScreen.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.893</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square150x150Logo.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square150x150Logo.scale-100.png">
       <PackagePath>Assets\LogoImages\Square150x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:19.902</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square150x150Logo.scale-125.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square150x150Logo.scale-125.png">
       <PackagePath>Assets\LogoImages\Square150x150Logo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:19.922</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square150x150Logo.scale-150.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square150x150Logo.scale-150.png">
       <PackagePath>Assets\LogoImages\Square150x150Logo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:19.943</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\LogoImages\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:19.966</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square150x150Logo.scale-400.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square150x150Logo.scale-400.png">
       <PackagePath>Assets\LogoImages\Square150x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.007</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square310x310Logo.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square310x310Logo.scale-100.png">
       <PackagePath>Assets\LogoImages\Square310x310Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.159</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square310x310Logo.scale-125.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square310x310Logo.scale-125.png">
       <PackagePath>Assets\LogoImages\Square310x310Logo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.189</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square310x310Logo.scale-150.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square310x310Logo.scale-150.png">
       <PackagePath>Assets\LogoImages\Square310x310Logo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.223</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square310x310Logo.scale-200.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square310x310Logo.scale-200.png">
       <PackagePath>Assets\LogoImages\Square310x310Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.269</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square310x310Logo.scale-400.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square310x310Logo.scale-400.png">
       <PackagePath>Assets\LogoImages\Square310x310Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-03-18T23:17:35.510</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square44x44Logo.altform-unplated_targetsize-16.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square44x44Logo.altform-unplated_targetsize-16.png">
       <PackagePath>Assets\LogoImages\Square44x44Logo.altform-unplated_targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.556</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square44x44Logo.altform-unplated_targetsize-24.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square44x44Logo.altform-unplated_targetsize-24.png">
       <PackagePath>Assets\LogoImages\Square44x44Logo.altform-unplated_targetsize-24.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.571</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square44x44Logo.altform-unplated_targetsize-256.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square44x44Logo.altform-unplated_targetsize-256.png">
       <PackagePath>Assets\LogoImages\Square44x44Logo.altform-unplated_targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.626</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square44x44Logo.altform-unplated_targetsize-32.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square44x44Logo.altform-unplated_targetsize-32.png">
       <PackagePath>Assets\LogoImages\Square44x44Logo.altform-unplated_targetsize-32.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.587</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square44x44Logo.altform-unplated_targetsize-48.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square44x44Logo.altform-unplated_targetsize-48.png">
       <PackagePath>Assets\LogoImages\Square44x44Logo.altform-unplated_targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.603</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square44x44Logo.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square44x44Logo.scale-100.png">
       <PackagePath>Assets\LogoImages\Square44x44Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.388</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square44x44Logo.scale-125.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square44x44Logo.scale-125.png">
       <PackagePath>Assets\LogoImages\Square44x44Logo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.404</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square44x44Logo.scale-150.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square44x44Logo.scale-150.png">
       <PackagePath>Assets\LogoImages\Square44x44Logo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.420</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\LogoImages\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.437</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square44x44Logo.scale-400.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square44x44Logo.scale-400.png">
       <PackagePath>Assets\LogoImages\Square44x44Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.455</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square44x44Logo.targetsize-16.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square44x44Logo.targetsize-16.png">
       <PackagePath>Assets\LogoImages\Square44x44Logo.targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.472</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square44x44Logo.targetsize-24.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square44x44Logo.targetsize-24.png">
       <PackagePath>Assets\LogoImages\Square44x44Logo.targetsize-24.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.488</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square44x44Logo.targetsize-256.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square44x44Logo.targetsize-256.png">
       <PackagePath>Assets\LogoImages\Square44x44Logo.targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.539</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square44x44Logo.targetsize-32.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square44x44Logo.targetsize-32.png">
       <PackagePath>Assets\LogoImages\Square44x44Logo.targetsize-32.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.503</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square44x44Logo.targetsize-48.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square44x44Logo.targetsize-48.png">
       <PackagePath>Assets\LogoImages\Square44x44Logo.targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.518</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square71x71Logo.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square71x71Logo.scale-100.png">
       <PackagePath>Assets\LogoImages\Square71x71Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:19.792</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square71x71Logo.scale-125.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square71x71Logo.scale-125.png">
       <PackagePath>Assets\LogoImages\Square71x71Logo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:19.814</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square71x71Logo.scale-150.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square71x71Logo.scale-150.png">
       <PackagePath>Assets\LogoImages\Square71x71Logo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:19.836</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square71x71Logo.scale-200.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square71x71Logo.scale-200.png">
       <PackagePath>Assets\LogoImages\Square71x71Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:19.856</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Square71x71Logo.scale-400.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Square71x71Logo.scale-400.png">
       <PackagePath>Assets\LogoImages\Square71x71Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:19.882</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Wide310x150Logo.scale-100.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Wide310x150Logo.scale-100.png">
       <PackagePath>Assets\LogoImages\Wide310x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.025</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Wide310x150Logo.scale-125.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Wide310x150Logo.scale-125.png">
       <PackagePath>Assets\LogoImages\Wide310x150Logo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.044</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Wide310x150Logo.scale-150.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Wide310x150Logo.scale-150.png">
       <PackagePath>Assets\LogoImages\Wide310x150Logo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.068</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\LogoImages\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.092</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoImages\Wide310x150Logo.scale-400.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoImages\Wide310x150Logo.scale-400.png">
       <PackagePath>Assets\LogoImages\Wide310x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-23T08:28:20.135</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoSource\T.png">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoSource\T.png">
       <PackagePath>Assets\LogoSource\T.png</PackagePath>
       <Modified>2017-06-23T19:56:26.888</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoSource\quasimodo.ttf">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoSource\quasimodo.ttf">
       <PackagePath>Assets\LogoSource\quasimodo.ttf</PackagePath>
       <Modified>2017-06-23T19:56:26.726</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoSource\Sword_01.svg">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoSource\Sword_01.svg">
       <PackagePath>Assets\LogoSource\Sword_01.svg</PackagePath>
       <Modified>2017-06-23T19:56:26.673</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Assets\LogoSource\Two_red_dice_01.svg">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Assets\LogoSource\Two_red_dice_01.svg">
       <PackagePath>Assets\LogoSource\Two_red_dice_01.svg</PackagePath>
       <Modified>2017-06-23T19:56:26.826</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2017-03-18T23:17:41.208</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\bin\x86\Debug\MunchkinUWP.xr.xml">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\bin\x86\Debug\MunchkinUWP.xr.xml">
       <PackagePath>MunchkinUWP.xr.xml</PackagePath>
       <Modified>2017-07-20T23:56:41.335</Modified>
     </AppxPackagedFile>
@@ -780,14 +780,14 @@
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2017-04-06T07:37:55.839</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-07-21T00:21:28.313</Modified>
+      <Modified>2017-08-03T08:00:26.204</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\bin\x86\Debug\Core\MunchkinUWP.exe">
+    <AppxPackagedFile Include="c:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\bin\x86\Debug\Core\MunchkinUWP.exe">
       <PackagePath>MunchkinUWP.exe</PackagePath>
-      <Modified>2017-07-21T00:21:28.598</Modified>
+      <Modified>2017-08-03T08:00:26.400</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

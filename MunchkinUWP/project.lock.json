@@ -26370,10 +26370,10 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "c:\\Users\\Tobiv\\Source\\Workspaces\\MunchkinApp\\MunchkinUWP\\MunchkinUWP.csproj",
+      "projectUniqueName": "c:\\Users\\Tobiv\\Source\\Repos\\MunchkinTracker\\MunchkinUWP\\MunchkinUWP.csproj",
       "projectName": "MunchkinUWP",
-      "projectPath": "c:\\Users\\Tobiv\\Source\\Workspaces\\MunchkinApp\\MunchkinUWP\\MunchkinUWP.csproj",
-      "projectJsonPath": "c:\\Users\\Tobiv\\Source\\Workspaces\\MunchkinApp\\MunchkinUWP\\project.json",
+      "projectPath": "c:\\Users\\Tobiv\\Source\\Repos\\MunchkinTracker\\MunchkinUWP\\MunchkinUWP.csproj",
+      "projectJsonPath": "c:\\Users\\Tobiv\\Source\\Repos\\MunchkinTracker\\MunchkinUWP\\project.json",
       "projectStyle": "ProjectJson"
     },
     "dependencies": {
