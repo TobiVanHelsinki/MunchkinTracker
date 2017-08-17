@@ -46,7 +46,7 @@ namespace MunchkinUWP.Model
                 {
                     if (_nLevel < value && value >= 7 && _strName == "Luca")
                     {
-                        AppModel.Instance.NewNotification("Achtung, " + _strName + " ist Level " + _nLevel + "!");
+                        AppModel.Instance.NewNotification("Achtung, " + _strName + " ist Level " + value + "!");
                     }
                     _nLevel = value;
                     nPower = nLevel + nGear;
