@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using TLIB;
 
 namespace MunchkinUWP.Model
 {
@@ -44,9 +45,10 @@ namespace MunchkinUWP.Model
             {
                 if (value != _nLevel)
                 {
-                    if (_nLevel < value && value >= 7 && _strName == "Luca")
+                    if (SettingsModel.I.GAMEWARNINGS && _nLevel < value && value >= SettingsModel.I.GAMEWARNINGS_LEVEL)
                     {
-                        AppModel.Instance.NewNotification("Achtung, " + _strName + " ist Level " + value + "!");
+                        ;
+                        AppModel.Instance.NewNotification(CrossPlatformHelper.GetString("Attention") +", " + _strName + " "+ CrossPlatformHelper.GetString("is")+" "+CrossPlatformHelper.GetString("Munchkin_Level/Text") +" " + value + "!");
                     }
                     _nLevel = value;
                     nPower = nLevel + nGear;

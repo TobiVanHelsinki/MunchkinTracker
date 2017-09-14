@@ -1,1 +1,0 @@
-MainPackage=C:\Users\Tobiv\Source\Workspaces\MunchkinApp\MunchkinUWP\bin\x86\Release\MunchkinUWP_1.5.3.0_x86.appx

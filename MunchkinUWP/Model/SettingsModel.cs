@@ -4,6 +4,26 @@ namespace MunchkinUWP.Model
 {
     public class SettingsModel : TLIB.Model.SharedSettingsModel
     {
+
+        public bool GAMEWARNINGS
+        {
+            get => PlatformSettings.getBool(Constants.CONTAINER_SETTINGS_GAMEWARNINGS);
+            set
+            {
+                PlatformSettings.set(Constants.CONTAINER_SETTINGS_GAMEWARNINGS, value);
+                Instance.NotifyPropertyChanged();
+            }
+        }
+
+        public int GAMEWARNINGS_LEVEL
+        {
+            get => PlatformSettings.getInt(Constants.CONTAINER_SETTINGS_GAMEWARNINGS_LEVEL);
+            set
+            {
+                PlatformSettings.set(Constants.CONTAINER_SETTINGS_GAMEWARNINGS_LEVEL, value);
+                Instance.NotifyPropertyChanged();
+            }
+        }
         public ElementTheme THEME
         {
             get => (ElementTheme)PlatformSettings.getInt(Constants.ELEMENT_THEME);

@@ -72,11 +72,27 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            <Button x:Name="ResetGame" x:Uid="ResetGame" Style="{StaticResource SettingsBtn}" Click="ResetGame_Click" HorizontalAlignment="Stretch"/>
-                            <Button x:Name="DeleteMunchkins" x:Uid="DeleteMunchkins" Style="{StaticResource SettingsBtn}" Click="Delete_Click" Grid.Row="1" HorizontalAlignment="Stretch"/>
-                            <Button x:Name="DeleteStatistics" x:Uid="DeleteStatistics" Style="{StaticResource SettingsBtn}" Click="Delete_Click" Grid.Row="2" HorizontalAlignment="Stretch"/>
-                            <Button x:Name="DeleteAll" x:Uid="DeleteAll" Style="{StaticResource SettingsBtn}" Click="Delete_Click" Grid.Row="3" HorizontalAlignment="Stretch"/>
+                            <Button x:Name="ResetGame" x:Uid="ResetGame" Style="{StaticResource SettingsBtn}" Click="ResetGame_Click"/>
+                            <Button x:Name="DeleteMunchkins" x:Uid="DeleteMunchkins" Style="{StaticResource SettingsBtn}" Click="Delete_Click" Grid.Row="1"/>
+                            <Button x:Name="DeleteStatistics" x:Uid="DeleteStatistics" Style="{StaticResource SettingsBtn}" Click="Delete_Click" Grid.Row="2"/>
+                            <Button x:Name="DeleteAll" Grid.Row="3"  x:Uid="DeleteAll" Style="{StaticResource SettingsBtn}" Click="Delete_Click"/>
+
+                            <TextBlock Grid.Row="4" Grid.ColumnSpan="2" x:Uid="UI_Optionen_ListViewShortMode_Header" Style="{StaticResource TextInhaltKlein}"/>
+                            <ToggleSwitch Grid.Row="5" Grid.ColumnSpan="2" x:Uid="UI_Optionen_Toggle" IsOn="{x:Bind Path=Settings.ListViewShortMode, Mode=TwoWay}"/>
+
+                            <TextBlock Grid.Row="6" Grid.ColumnSpan="2" x:Uid="UI_Optionen_GameWarnings_Header" Style="{StaticResource TextInhaltKlein}"/>
+                            <ToggleSwitch Grid.Row="7" Grid.ColumnSpan="2" x:Uid="UI_Optionen_Toggle" IsOn="{x:Bind Path=Settings.GAMEWARNINGS, Mode=TwoWay}"/>
+
+                            <TextBlock Grid.Row="8" Grid.ColumnSpan="2" x:Uid="UI_Optionen_GameWarnings_Level_Header" Style="{StaticResource TextInhaltKlein}"/>
+                            <TextBox Grid.Row="9" Style="{StaticResource SettingsInputField}" Text="{x:Bind Path=Settings.GAMEWARNINGS_LEVEL, Mode=TwoWay}"/>
                         </Grid>
 
                         <Border Style="{StaticResource SplitBorder}"/>
@@ -93,12 +109,6 @@
                                 <TextBlock x:Uid="Settings_Theme_Default"/>
                             </ComboBoxItem>
                         </ComboBox>
-                        <TextBlock x:Uid="UI_Optionen_Themes_Header" Style="{StaticResource TextInhaltKlein}"/>
-
-                        <TextBlock x:Uid="UI_Optionen_ListViewShortMode_Header" Style="{StaticResource TextInhaltKlein}"/>
-                        <ToggleSwitch x:Uid="UI_Optionen_Toggle" IsOn="{x:Bind Path=Settings.ListViewShortMode, Mode=TwoWay}"/>
-
-
                     </StackPanel>
                 </ScrollViewer>
             </PivotItem>

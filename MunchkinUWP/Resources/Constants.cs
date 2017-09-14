@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TLIB;
 using TLIB.Model;
-using Windows.ApplicationModel;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Media;
 
 namespace MunchkinUWP
 {
@@ -17,12 +13,13 @@ namespace MunchkinUWP
 
         public const string ELEMENT_THEME = "SETTINGS_ELEMENT_THEME";
         public const string LISTVIEWSHORTMODE = "SETTINGS_LISTVIEWSHORTMODE";
+        public const string CONTAINER_SETTINGS_GAMEWARNINGS_LEVEL = "SETTINGS_GAMEWARNINGS_LEVEL";
+        public const string CONTAINER_SETTINGS_GAMEWARNINGS = "SETTINGS_GAMEWARNINGS";
 
-        
         public const uint STD_RANDOM_MAX = 6;
         public const uint STD_RANDOMMAXTRIES = 100;
         public const int STD_AUTOSAVE_INTERVAL = 5000;
-        
+
         //========================================================================
 
         public const string APP_STORE_LINK = "ms-windows-store://pdp/?productid=9ncxwgx1kr8s";

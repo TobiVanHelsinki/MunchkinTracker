@@ -130,7 +130,7 @@
     <value>Gear</value>
   </data>
   <data name="BtnLevel.Content" xml:space="preserve">
-    <value>Level</value>
+    <value>Stufe</value>
   </data>
   <data name="ConfirmAll" xml:space="preserve">
     <value>Das Universum wird zurückgesetzt, fortfahren?</value>
@@ -178,7 +178,7 @@
     <value>Gear</value>
   </data>
   <data name="Munchkin_Level.Text" xml:space="preserve">
-    <value>Level</value>
+    <value>Stufe</value>
   </data>
   <data name="Munchkin_Power.Text" xml:space="preserve">
     <value>Stärke</value>
@@ -355,5 +355,17 @@ Mit dieser App können Dateien und Ordner auf dem Dateisystem geöffnet werden. 
   </data>
   <data name="Help1_BlackBug" xml:space="preserve">
     <value>Schwarze Detailanzeige nach Löschen</value>
+  </data>
+  <data name="Attention" xml:space="preserve">
+    <value>Achtung</value>
+  </data>
+  <data name="is" xml:space="preserve">
+    <value>ist</value>
+  </data>
+  <data name="UI_Optionen_GameWarnings_Header.Text" xml:space="preserve">
+    <value>Level für Warnung</value>
+  </data>
+  <data name="UI_Optionen_GameWarnings_Level_Header.Text" xml:space="preserve">
+    <value>Spielwarnungen</value>
   </data>
 </root>
