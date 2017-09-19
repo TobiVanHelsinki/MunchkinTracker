@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.0
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MunchkinUWP", "MunchkinUWP\MunchkinUWP.csproj", "{8C77FF4B-4908-4E54-8339-6F9F507A9D67}"
 EndProject
@@ -43,19 +43,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://tobivanhelsinki.visualstudio.com/defaultcollection
-		SccProjectUniqueName0 = ..\\TLIB\\TLIB\\TLIB.projitems
-		SccProjectName0 = ../TLIB/TLIB
-		SccAuxPath0 = https://tobivanhelsinki.visualstudio.com/defaultcollection
-		SccLocalPath0 = ..\\TLIB\\TLIB
-		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName1 = ..\\TLIB\\TLIB\\TLIB.shproj
-		SccProjectName1 = ../TLIB/TLIB
-		SccAuxPath1 = https://tobivanhelsinki.visualstudio.com/defaultcollection
-		SccLocalPath1 = ..\\TLIB\\TLIB
-		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C561AD3B-8C6F-439C-923A-E0361D84D7C4}
 	EndGlobalSection
 EndGlobal

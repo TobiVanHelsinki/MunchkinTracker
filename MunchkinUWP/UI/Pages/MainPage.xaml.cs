@@ -465,6 +465,28 @@ namespace MunchkinUWP.Pages
                 RootView.OpenPaneLength = MainPageRoot.ActualWidth;
             }
         }
+
+        private void AppBarButton_BtnSound_Click(object sender, RoutedEventArgs e)
+        {
+            //(sender as AppBarButton).Flyout.at
+            //FlyoutBase.ShowAttachedFlyout(sender as FrameworkElement);
+
+        }
+
+        private void SoundBoardPlay_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         
+
+        private void StackPanel_Loading(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GridView_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

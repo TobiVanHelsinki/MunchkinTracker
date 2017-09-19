@@ -227,6 +227,31 @@
                     <Button Grid.Column="2" x:Uid="BtnOverviewDelete" FontFamily="Segoe MDL2 Assets" Content="&#xE74D;" Click="BtnOverviewDelete_Click"  Style="{StaticResource TrashBtn}"/>
                 </Grid>
             </DataTemplate>
+            <DataTemplate x:Name="SoundBar" x:DataType="viewmodels:Game">
+                <GridView Loaded="GridView_Loaded" ItemsSource="{x:Bind SoundList, Mode=OneWay}">
+                    <GridView.ItemTemplate>
+                        <DataTemplate x:DataType="viewmodels:Sound">
+                            <StackPanel Loaded="StackPanel_Loading">
+                                <TextBlock Text="{x:Bind Name}"/>
+                                <TextBlock Text="{x:Bind Description}"/>
+                                <Button FontFamily="Segoe MDL2 Assets" Content="&#xE74D;" Click="SoundBoardPlay_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+                <!--<Grid Style="{StaticResource OverviewGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Uid="BtnOverviewMove" FontFamily="Segoe MDL2 Assets" Text="&#xE8CB;" VerticalAlignment="Center" Padding="6,0,8,0"></TextBlock>
+                    <TextBox Grid.Column="1"
+                    Text="{x:Bind strName, Mode=TwoWay}"
+                    x:Uid="NameEdit"
+                    Style="{StaticResource h1LBox}"/>-->
+                <!--</Grid>-->
+            </DataTemplate>
         </ResourceDictionary>
     </Page.Resources>
     <SplitView x:Name="RootView" PanePlacement="Left" SizeChanged="RootView_SizeChanged" CompactPaneLength="1"  IsPaneOpen="True" DisplayMode="CompactInline" MinWidth="1" >
@@ -333,6 +358,13 @@
                 </Pivot.HeaderTemplate>
             </Pivot>
             <CommandBar x:Name="CommandbarMunchkin" Grid.Row="1">
+                <AppBarButton Name="BtnSound" x:Uid="BtnSound" Icon="Volume" Click="AppBarButton_BtnSound_Click">
+                    <AppBarButton.Flyout>
+                        <Flyout>
+                            <ContentControl ContentTemplate="{StaticResource SoundBar}" DataContext="{x:Bind ViewModel}" />
+                        </Flyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
                 <AppBarButton HorizontalAlignment="Left" Name="BtnBattle" x:Uid="BtnBattle" Icon="People" Click="AppBarButton_Battle_Click"/>
                 <AppBarButton Name="BtnRandom" x:Uid="BtnRandom" Content="&#x2682;" Click="AppBarButton_Random_Click"/>
             </CommandBar>

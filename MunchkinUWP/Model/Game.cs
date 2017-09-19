@@ -210,6 +210,9 @@ namespace MunchkinUWP.Model
                 NotifyPropertyChanged();
             }
         }
+        //SOUNDBOARD ##########################################################
+        [Newtonsoft.Json.JsonIgnore]
+        public ObservableCollection<Sound> SoundList = new ObservableCollection<Sound>();
 
         //FILE HANDLING #######################################################
         public string APP_VERSION_NUMBER => Constants.APP_VERSION;
@@ -230,6 +233,14 @@ namespace MunchkinUWP.Model
         //=============================================================================
         public Game()
         {
+            SoundList.Add(new Sound() { Name = "Test1", Description=" owidhjskjfnsuidjh asl<dfnohd" });
+            SoundList.Add(new Sound() { Name = "Test2", Description="laskdhj owidhjskjfnsuidjh asl<dfnohd" });
+            SoundList.Add(new Sound() { Name = "Test3", Description="laskdhj  asl<dfnohd" });
+            SoundList.Add(new Sound() { Name = "Test4", Description= "laskdhj laskdhj laskdhj owidhjskjfnsuidjh asl<dfnohd" });
+            SoundList.Add(new Sound() { Name = "Test5", Description="laskdhj owidhjskjfnsuidjh asl<dfnohd" });
+            SoundList.Add(new Sound() { Name = "Test6", Description="laskdhj owidhjskjfnsuidjh asl<" });
+            SoundList.Add(new Sound() { Name = "Test7", Description= "owidhjskjfnsuidjh laskdhj owidhjskjfnsuidjh owidhjskjfnsuidjh owidhjskjfnsuidjh asl<dfnohd" });
+
             Tim = new System.Threading.Timer((x)=> { SaveRequest?.Invoke(x, new EventArgs()); HasChanges = false; },this, System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
             PropertyChanged += Game_PropertyChanged;
             lstMunchkin = new ObservableCollection<Munchkin>();
