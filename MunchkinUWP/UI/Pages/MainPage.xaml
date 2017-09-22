@@ -335,12 +335,12 @@
             <CommandBar x:Name="CommandbarMunchkin" Grid.Row="1">
                 <AppBarButton Name="BtnSound" x:Uid="BtnSound" Icon="Volume">
                     <AppBarButton.Flyout>
-                        <Flyout ScrollViewer.IsHorizontalScrollChainingEnabled="False" ScrollViewer.IsHorizontalRailEnabled="False" Placement="Full">
-                            <GridView Background="Aqua" SelectionMode="None" ItemsSource="{x:Bind ViewModel.SoundList, Mode=OneWay}">
+                        <Flyout ScrollViewer.IsHorizontalScrollChainingEnabled="False" ScrollViewer.IsHorizontalRailEnabled="False" ScrollViewer.HorizontalScrollMode="Disabled" Placement="Full">
+                            <GridView HorizontalAlignment="Center" Width="380" Background="Aqua" SelectionMode="None" ItemsSource="{x:Bind ViewModel.SoundList, Mode=OneWay}">
                                 <GridView.ItemTemplate>
                                     <DataTemplate x:DataType="viewmodels:Sound">
-                                        <StackPanel Width="185" Height="120" DataContext="{x:Bind SoundName}" Tapped="SoundPanel_Tapped">
-                                            <TextBlock Text="{x:Bind Name}" TextWrapping="Wrap"/>
+                                        <StackPanel BorderThickness="1" BorderBrush="Black" Width="185" Height="120" DataContext="{x:Bind SoundName}" Tapped="SoundPanel_Tapped">
+                                            <TextBlock HorizontalAlignment="Center" Text="{x:Bind Name}" TextWrapping="Wrap"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </GridView.ItemTemplate>
