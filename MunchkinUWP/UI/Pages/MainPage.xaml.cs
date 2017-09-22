@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using TLIB.Model;
 using Windows.Foundation.Metadata;
+using Windows.Media.Playback;
 using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -13,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using static MunchkinUWP.Model.Sound;
 
 namespace MunchkinUWP.UI.Converter
 {
@@ -465,28 +467,9 @@ namespace MunchkinUWP.Pages
                 RootView.OpenPaneLength = MainPageRoot.ActualWidth;
             }
         }
-
-        private void AppBarButton_BtnSound_Click(object sender, RoutedEventArgs e)
+        private void SoundPanel_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            //(sender as AppBarButton).Flyout.at
-            //FlyoutBase.ShowAttachedFlyout(sender as FrameworkElement);
-
-        }
-
-        private void SoundBoardPlay_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        
-
-        private void StackPanel_Loading(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void GridView_Loaded(object sender, RoutedEventArgs e)
-        {
-
+           IO.SoundBoardIO.PlaySound((eSoundName)(sender as StackPanel).DataContext);
         }
     }
 }

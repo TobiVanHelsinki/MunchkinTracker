@@ -132,6 +132,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IO\SoundBoardIO.cs" />
     <Compile Include="Model\Sound.cs" />
     <Compile Include="Model\SettingsModel.cs" />
     <Compile Include="Resources\Constants.cs" />
@@ -171,6 +172,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Sounds\chord.wav" />
     <Content Include="Assets\LogoImages\NewStoreLogo.scale-100.png" />
     <Content Include="Assets\LogoImages\NewStoreLogo.scale-125.png" />
     <Content Include="Assets\LogoImages\NewStoreLogo.scale-150.png" />

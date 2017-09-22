@@ -233,9 +233,9 @@ namespace MunchkinUWP.Model
         //=============================================================================
         public Game()
         {
-            SoundList.Add(new Sound() { Name = "Test1", Description=" owidhjskjfnsuidjh asl<dfnohd" });
-            SoundList.Add(new Sound() { Name = "Test2", Description="laskdhj owidhjskjfnsuidjh asl<dfnohd" });
-            SoundList.Add(new Sound() { Name = "Test3", Description="laskdhj  asl<dfnohd" });
+            SoundList.Add(new Sound() { Name = "Test1", SoundName = Sound.eSoundName.Beep, Description=" owidhjskjfnsuidjh asl<dfnohd" });
+            SoundList.Add(new Sound() { Name = "Chord", SoundName = Sound.eSoundName.Chord, Description ="laskdhj owidhjskjfnsuidjh asl<dfnohd" });
+            SoundList.Add(new Sound() { Name = "Badum", SoundName = Sound.eSoundName.badumtshh, Description = "badum asl<dfnohd" });
             SoundList.Add(new Sound() { Name = "Test4", Description= "laskdhj laskdhj laskdhj owidhjskjfnsuidjh asl<dfnohd" });
             SoundList.Add(new Sound() { Name = "Test5", Description="laskdhj owidhjskjfnsuidjh asl<dfnohd" });
             SoundList.Add(new Sound() { Name = "Test6", Description="laskdhj owidhjskjfnsuidjh asl<" });
