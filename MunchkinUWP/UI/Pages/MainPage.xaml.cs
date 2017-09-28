@@ -103,6 +103,7 @@ namespace MunchkinUWP.Pages
                 AppModel.Instance.lstNotifications.CollectionChanged += (x, y) => ShowError(y);
 
                 UpdateForVisualState(OverviewState);
+                LstMunchkin_CollectionChanged(null, null);
             }
 
             async void ShowError(NotifyCollectionChangedEventArgs y)
