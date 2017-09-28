@@ -368,4 +368,16 @@ Mit dieser App können Dateien und Ordner auf dem Dateisystem geöffnet werden. 
   <data name="UI_Optionen_GameWarnings_Level_Header.Text" xml:space="preserve">
     <value>Spielwarnungen</value>
   </data>
+  <data name="Sound_Badum" xml:space="preserve">
+    <value>Ba-Dum-Tss</value>
+  </data>
+  <data name="Sound_chord" xml:space="preserve">
+    <value>Chord</value>
+  </data>
+  <data name="Sound_Wilhelm" xml:space="preserve">
+    <value>Willhelmsschrei</value>
+  </data>
+  <data name="BtnSound.Label" xml:space="preserve">
+    <value>SoundBoard</value>
+  </data>
 </root>

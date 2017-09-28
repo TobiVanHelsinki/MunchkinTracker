@@ -467,9 +467,10 @@ namespace MunchkinUWP.Pages
                 RootView.OpenPaneLength = MainPageRoot.ActualWidth;
             }
         }
-        private void SoundPanel_Tapped(object sender, TappedRoutedEventArgs e)
+
+        private void SoundButton_Click(object sender, RoutedEventArgs e)
         {
-           IO.SoundBoardIO.PlaySound((eSoundName)(sender as StackPanel).DataContext);
+            IO.SoundBoardIO.PlaySound((eSoundName)(sender as Button).DataContext);
         }
     }
 }

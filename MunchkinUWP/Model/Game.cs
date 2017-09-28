@@ -233,13 +233,9 @@ namespace MunchkinUWP.Model
         //=============================================================================
         public Game()
         {
-            SoundList.Add(new Sound() { Name = "Test1", SoundName = Sound.eSoundName.Beep, Description=" owidhjskjfnsuidjh asl<dfnohd" });
-            SoundList.Add(new Sound() { Name = "Chord", SoundName = Sound.eSoundName.Chord, Description ="laskdhj owidhjskjfnsuidjh asl<dfnohd" });
-            SoundList.Add(new Sound() { Name = "Badum", SoundName = Sound.eSoundName.badumtshh, Description = "badum asl<dfnohd" });
-            SoundList.Add(new Sound() { Name = "Test4", Description= "laskdhj laskdhj laskdhj owidhjskjfnsuidjh asl<dfnohd" });
-            SoundList.Add(new Sound() { Name = "Test5", Description="laskdhj owidhjskjfnsuidjh asl<dfnohd" });
-            SoundList.Add(new Sound() { Name = "Test6", Description="laskdhj owidhjskjfnsuidjh asl<" });
-            SoundList.Add(new Sound() { Name = "Test7", Description= "owidhjskjfnsuidjh laskdhj owidhjskjfnsuidjh owidhjskjfnsuidjh owidhjskjfnsuidjh asl<dfnohd" });
+            SoundList.Add(new Sound() { Name = CrossPlatformHelper.GetString("Sound_Badum"), SoundName = Sound.eSoundName.badumtshh, Description = "" });
+            SoundList.Add(new Sound() { Name = CrossPlatformHelper.GetString("Sound_Wilhelm"), SoundName = Sound.eSoundName.WilhelmScream, Description = "" });
+            SoundList.Add(new Sound() { Name = CrossPlatformHelper.GetString("Sound_Chord"), SoundName = Sound.eSoundName.Chord, Description = "" });
 
             Tim = new System.Threading.Timer((x)=> { SaveRequest?.Invoke(x, new EventArgs()); HasChanges = false; },this, System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
             PropertyChanged += Game_PropertyChanged;

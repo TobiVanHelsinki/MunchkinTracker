@@ -36,7 +36,7 @@
     <Prefer32Bit>true</Prefer32Bit>
     <CodeAnalysisRuleSet>other\deadcodedetectionrules .ruleset</CodeAnalysisRuleSet>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
-    <EnableGatekeeperAnalysis>true</EnableGatekeeperAnalysis>
+    <EnableGatekeeperAnalysis>false</EnableGatekeeperAnalysis>
     <Optimize>false</Optimize>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
@@ -91,12 +91,12 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
     <Optimize>false</Optimize>
-    <EnableGatekeeperAnalysis>true</EnableGatekeeperAnalysis>
-    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <EnableGatekeeperAnalysis>false</EnableGatekeeperAnalysis>
+    <UseDotNetNativeToolchain>false</UseDotNetNativeToolchain>
     <CodeAnalysisRuleSet>other\deadcodedetectionrules .ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
-    <WarningLevel>0</WarningLevel>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -125,6 +125,7 @@
     <None Include="AppPackages\MunchkinUWP_1.2.8.0_x86_x64_arm_bundle.appxupload" />
     <None Include="AppPackages\MunchkinUWP_1.3.10.0_Test.7z" />
     <None Include="AppPackages\MunchkinUWP_1.3.10.0_x86_x64_arm_bundle.appxupload" />
+    <None Include="Assets\Sounds\WilhelmScream.ogg" />
     <None Include="MunchkinUWP_StoreKey.pfx" />
     <None Include="other\DeadCodeDetectionRules .ruleset" />
   </ItemGroup>
@@ -172,6 +173,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Sounds\badumtshh.aif" />
     <Content Include="Assets\Sounds\chord.wav" />
     <Content Include="Assets\LogoImages\NewStoreLogo.scale-100.png" />
     <Content Include="Assets\LogoImages\NewStoreLogo.scale-125.png" />
@@ -223,6 +225,7 @@
     <Content Include="Assets\LogoSource\Sword_01.svg" />
     <Content Include="Assets\LogoSource\T.png" />
     <Content Include="Assets\LogoSource\Two_red_dice_01.svg" />
+    <Content Include="Assets\Sounds\WilhelmScream.mp3" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>

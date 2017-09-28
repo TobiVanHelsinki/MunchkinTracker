@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using TLIB;
 using TLIB.IO;
+using Windows.Storage;
 using Windows.UI.Xaml.Controls;
 
 using static MunchkinUWP.Model.Sound;
@@ -21,6 +24,10 @@ namespace MunchkinUWP.IO
                 case eSoundName.badumtshh:
                     FileToPlay = "badumtshh.aif";
                     break;
+                case eSoundName.WilhelmScream:
+                    FileToPlay = "WilhelmScream.mp3";
+                    break;
+                    
                 default:
                     FileToPlay = "";
                     break;
@@ -44,6 +51,7 @@ namespace MunchkinUWP.IO
                 return;
             }
             mysong.SetSource(await SoundFile.OpenAsync(Windows.Storage.FileAccessMode.Read), SoundFile.ContentType);
+            mysong.AudioCategory = Windows.UI.Xaml.Media.AudioCategory.SoundEffects;
             mysong.Play();
 
 #endif

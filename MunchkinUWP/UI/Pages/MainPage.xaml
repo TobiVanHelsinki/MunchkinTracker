@@ -336,12 +336,19 @@
                 <AppBarButton Name="BtnSound" x:Uid="BtnSound" Icon="Volume">
                     <AppBarButton.Flyout>
                         <Flyout ScrollViewer.IsHorizontalScrollChainingEnabled="False" ScrollViewer.IsHorizontalRailEnabled="False" ScrollViewer.HorizontalScrollMode="Disabled" Placement="Full">
-                            <GridView HorizontalAlignment="Center" Width="380" Background="Aqua" SelectionMode="None" ItemsSource="{x:Bind ViewModel.SoundList, Mode=OneWay}">
+                            <GridView HorizontalAlignment="Center" Width="380" SelectionMode="None" ItemsSource="{x:Bind ViewModel.SoundList, Mode=OneWay}">
                                 <GridView.ItemTemplate>
                                     <DataTemplate x:DataType="viewmodels:Sound">
-                                        <StackPanel BorderThickness="1" BorderBrush="Black" Width="185" Height="120" DataContext="{x:Bind SoundName}" Tapped="SoundPanel_Tapped">
-                                            <TextBlock HorizontalAlignment="Center" Text="{x:Bind Name}" TextWrapping="Wrap"/>
-                                        </StackPanel>
+                                        <Grid BorderThickness="1" BorderBrush="Black" Width="185" Height="120" DataContext="{x:Bind SoundName}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{x:Bind Name}" Click="SoundButton_Click"/>
+                                            <!--<Image Source="{x:Bind PicturePath}"/>-->
+                                        </Grid>
                                     </DataTemplate>
                                 </GridView.ItemTemplate>
                             </GridView>
