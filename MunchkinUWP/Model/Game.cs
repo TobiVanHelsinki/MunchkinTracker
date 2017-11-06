@@ -29,7 +29,9 @@ namespace MunchkinUWP.Model
         public event PropertyChangedEventHandler CurrentMunchkChanged;
         //=============================================================================
         public event EventHandler SaveRequest;
-        public bool HasChanges = false;
+        bool _HasChanges = false;
+        public bool HasChanges { get => _HasChanges;  set { _HasChanges = value; } }
+
         System.Threading.Timer Tim;
 
         void AnyPropertyChanged()
@@ -225,6 +227,7 @@ namespace MunchkinUWP.Model
         [Newtonsoft.Json.JsonIgnore]
         Func<string, string, string, IMainType> IMainType.Converter => null;
 
+
         public string MakeName()
         {
             return Constants.SAVE_GAME;
@@ -235,7 +238,7 @@ namespace MunchkinUWP.Model
         {
             SoundList.Add(new Sound() { Name = CrossPlatformHelper.GetString("Sound_Badum"), SoundName = Sound.eSoundName.badumtshh, Description = "" });
             SoundList.Add(new Sound() { Name = CrossPlatformHelper.GetString("Sound_Wilhelm"), SoundName = Sound.eSoundName.WilhelmScream, Description = "" });
-            SoundList.Add(new Sound() { Name = CrossPlatformHelper.GetString("Sound_Chord"), SoundName = Sound.eSoundName.Chord, Description = "" });
+            //SoundList.Add(new Sound() { Name = CrossPlatformHelper.GetString("Sound_Chord"), SoundName = Sound.eSoundName.Chord, Description = "" });
 
             Tim = new System.Threading.Timer((x)=> { SaveRequest?.Invoke(x, new EventArgs()); HasChanges = false; },this, System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
             PropertyChanged += Game_PropertyChanged;

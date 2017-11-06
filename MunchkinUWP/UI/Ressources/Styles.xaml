@@ -54,20 +54,29 @@
         <Setter Property="FontSize" Value="40"/>
         <Setter Property="FontWeight" Value="Normal"/>
     </Style>
-    <Style x:Name="h2Btn" TargetType="Button">
+    <Style x:Name="h2Btn" BasedOn="{StaticResource ButtonRevealStyle}" TargetType="Button">
+
+        
         <Setter Property="FontSize" Value="40"/>
         <Setter Property="FontWeight" Value="Normal"/>
         <Setter Property="Background" Value="{ThemeResource MainBackground}"/>
         <Setter Property="BorderBrush" Value="{ThemeResource MainBackgroundOuter}"/>
-        <Setter Property="BorderThickness" Value="7"/>
+        <Setter Property="BorderThickness" Value="9"/>
         <Setter Property="Margin" Value="4,4,4,4"/>
+
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+
+        <Setter Property="Foreground" Value="{ThemeResource ButtonForeground}" />
+        <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
+        <Setter Property="UseSystemFocusVisuals" Value="True" />
+        <Setter Property="FocusVisualMargin" Value="-3" />
+
     </Style>
     <Style x:Name="PMBtn" BasedOn="{StaticResource h2Btn}" TargetType="Button">
         <Setter Property="VerticalAlignment" Value="Stretch"/>
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
         <Setter Property="Margin" Value="0"/>
-        <!--<Setter Property="MaxWidth" Value="200"/>-->
-        <!--<Setter Property="MaxHeight" Value="200"/>-->
         <Setter Property="Foreground" Value="{ThemeResource MainFont}"/>
         <Setter Property="BorderThickness" Value="0"/>
     </Style>
@@ -77,9 +86,19 @@
         <Setter Property="Margin" Value="0,10,0,0"/>
         <Setter Property="MaxWidth" Value="200"/>
         <Setter Property="MaxHeight" Value="200"/>
-        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="CornerRadius" Value="100"/>
+        <Setter Property="BorderThickness" Value="7"/>
         <Setter Property="BorderBrush" Value="{ThemeResource MainBackgroundOuter}"/>
     </Style>
+
+    <Style x:Name="SBBtn" BasedOn="{StaticResource h2Btn}" TargetType="Button">
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Foreground" Value="{ThemeResource MainFont}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+
     <Style x:Name="h1DPower" TargetType="TextBlock" BasedOn="{StaticResource h1DBlock}">
         <Setter Property="FontSize" Value="40"/>
         <Setter Property="Margin" Value="1,1,15,1"/>
