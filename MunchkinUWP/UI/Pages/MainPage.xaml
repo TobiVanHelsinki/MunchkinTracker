@@ -276,6 +276,7 @@
                     <AppBarToggleButton Name="Overview_OrderBtn_Order" x:Uid="Overview_OrderBtn_Order" Icon="Sort" Click="Overview_OrderBtn_Order_Click"/>
                 </CommandBar>
                 <ListView
+                    Loaded="MasterListView_Loaded"
                     x:Name="MasterListView"
                     Grid.Row="1"
                     ItemContainerTransitions="{x:Null}"
@@ -365,6 +366,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Pivot x:Name="DetailPivotView"
+                   Loaded="DetailPivotView_Loaded"
                 ItemsSource="{x:Bind ViewModel.lstMunchkin, Mode=OneWay}"
                 Grid.Row="0" 
                 SelectedItem="{x:Bind ViewModel.oCurrentMunchkin, Mode=TwoWay, Converter={StaticResource CurrentMunchkinConverter}}"

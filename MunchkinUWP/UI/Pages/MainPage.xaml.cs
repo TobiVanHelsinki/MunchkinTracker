@@ -12,6 +12,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using static MunchkinUWP.Model.Sound;
@@ -472,6 +473,34 @@ namespace MunchkinUWP.Pages
         private void SoundButton_Click(object sender, RoutedEventArgs e)
         {
             IO.SoundBoardIO.PlaySound((eSoundName)(sender as Button).DataContext);
+        }
+
+        private void MasterListView_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.AcrylicBrush"))
+            {
+                try
+                {
+                    (sender as ListView).Background = (AcrylicBrush)Resources["SystemControlAcrylicWindowBrush"];
+                }
+                catch (Exception)
+                {
+                }
+            }
+        }
+
+        private void DetailPivotView_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.AcrylicBrush"))
+            {
+                try
+                {
+                    (sender as Pivot).Background = (AcrylicBrush)Resources["SystemControlAcrylicWindowBrush"];
+                }
+                catch (Exception)
+                {
+                }
+            }
         }
     }
 }
