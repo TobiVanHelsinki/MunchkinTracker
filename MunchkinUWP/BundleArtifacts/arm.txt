@@ -1,5 +1,5 @@
-MainPackage=C:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\bin\ARM\Release\MunchkinUWP_1.5.5.0_ARM.appx
-ResourcePack=C:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\bin\ARM\Release\MunchkinUWP_1.5.5.0_scale-100.appx
-ResourcePack=C:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\bin\ARM\Release\MunchkinUWP_1.5.5.0_scale-125.appx
-ResourcePack=C:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\bin\ARM\Release\MunchkinUWP_1.5.5.0_scale-150.appx
-ResourcePack=C:\Users\Tobiv\Source\Repos\MunchkinTracker\MunchkinUWP\bin\ARM\Release\MunchkinUWP_1.5.5.0_scale-400.appx
+MainPackage=C:\Users\Tobiv\Source\repos\MunchkinTracker\MunchkinUWP\bin\ARM\Release\MunchkinUWP_1.6.0.0_ARM.appx
+ResourcePack=C:\Users\Tobiv\Source\repos\MunchkinTracker\MunchkinUWP\bin\ARM\Release\MunchkinUWP_1.6.0.0_scale-100.appx
+ResourcePack=C:\Users\Tobiv\Source\repos\MunchkinTracker\MunchkinUWP\bin\ARM\Release\MunchkinUWP_1.6.0.0_scale-125.appx
+ResourcePack=C:\Users\Tobiv\Source\repos\MunchkinTracker\MunchkinUWP\bin\ARM\Release\MunchkinUWP_1.6.0.0_scale-150.appx
+ResourcePack=C:\Users\Tobiv\Source\repos\MunchkinTracker\MunchkinUWP\bin\ARM\Release\MunchkinUWP_1.6.0.0_scale-400.appx

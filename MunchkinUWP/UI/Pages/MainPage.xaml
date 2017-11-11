@@ -366,13 +366,12 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.Resources>
-                <AcrylicBrush x:Name="TestBrush" BackgroundSource="HostBackdrop" 
-                              FallbackColor="LightGray" Opacity="100" TintColor="White" 
-                              TintOpacity="90" />
+                <!--<AcrylicBrush x:Name="TestBrush" BackgroundSource="HostBackdrop" 
+                              FallbackColor="{StaticResource SystemAltHighColor}" Opacity="100" TintColor="{ThemeResource SystemAltHighColor}" 
+                              TintOpacity="90" />-->
             </Grid.Resources>
             <Pivot x:Name="DetailPivotView"
                    Loaded="DetailPivotView_Loaded"
-                   Background="{ThemeResource TestBrush}"
                 ItemsSource="{x:Bind ViewModel.lstMunchkin, Mode=OneWay}"
                 Grid.Row="0" 
                 SelectedItem="{x:Bind ViewModel.oCurrentMunchkin, Mode=TwoWay, Converter={StaticResource CurrentMunchkinConverter}}"

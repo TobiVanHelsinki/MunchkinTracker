@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" IgnorableNamespaces="uap mp uap3">
-  <Identity Name="21863TobivanHelsinki.MunchkinTracker" Publisher="CN=D02849C2-745B-495E-891A-5F7C07581158" Version="1.5.5.0" />
+  <Identity Name="21863TobivanHelsinki.MunchkinTracker" Publisher="CN=D02849C2-745B-495E-891A-5F7C07581158" Version="1.6.0.0" />
   <mp:PhoneIdentity PhoneProductId="d693fca6-2e3b-4c4c-9ffd-9ad36795eab4" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Munchkin Tracker</DisplayName>
