@@ -50,8 +50,10 @@ namespace MunchkinUWP.Pages
 
 #if DEBUG
             AppBarButton_Remote.Visibility = Visibility.Visible;
+            BtnSound.Visibility = Visibility.Visible;
 #else
             AppBarButton_Remote.Visibility = Visibility.Collapsed;
+            BtnSound.Visibility = Visibility.Collapsed;
 #endif
 
             if (ApiInformation.IsPropertyPresent("Windows.UI.Xaml.Controls.CommandBar", "DefaultLabelPosition"))
@@ -61,6 +63,17 @@ namespace MunchkinUWP.Pages
                 CommandbarOrder.DefaultLabelPosition = CommandBarDefaultLabelPosition.Right;
                 AppBarButton_Settings.LabelPosition = CommandBarLabelPosition.Collapsed;
                 AppBarButton_Add.LabelPosition = CommandBarLabelPosition.Collapsed;
+            }
+            if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.AcrylicBrush"))
+            {
+                STDAcrylicBrush = new Windows.UI.Xaml.Media.AcrylicBrush()
+                {
+                    BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
+                    FallbackColor = Windows.UI.Color.FromArgb(255, 220, 220, 220),
+                    TintColor = Windows.UI.Color.FromArgb(200, 220, 220, 220),
+                    Opacity = 100,
+                    TintOpacity = 90,
+                };
             }
         }
         // Navigation ======================================================================
@@ -475,12 +488,14 @@ namespace MunchkinUWP.Pages
             IO.SoundBoardIO.PlaySound((eSoundName)(sender as Button).DataContext);
         }
 
+        #region fuent design
         private void MasterListView_Loaded(object sender, RoutedEventArgs e)
         {
             if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.AcrylicBrush"))
             {
                 try
                 {
+                    //(sender as ListView).Background = (AcrylicBrush)STDAcrylicBrush;
                     (sender as ListView).Background = (AcrylicBrush)Resources["SystemControlAcrylicWindowBrush"];
                 }
                 catch (Exception)
@@ -489,6 +504,8 @@ namespace MunchkinUWP.Pages
             }
         }
 
+        object STDAcrylicBrush;
+
         private void DetailPivotView_Loaded(object sender, RoutedEventArgs e)
         {
             if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.AcrylicBrush"))
@@ -496,11 +513,13 @@ namespace MunchkinUWP.Pages
                 try
                 {
                     (sender as Pivot).Background = (AcrylicBrush)Resources["SystemControlAcrylicWindowBrush"];
+                    //(sender as Pivot).Background = (AcrylicBrush)STDAcrylicBrush;
                 }
                 catch (Exception)
                 {
                 }
             }
         }
+        #endregion
     }
 }

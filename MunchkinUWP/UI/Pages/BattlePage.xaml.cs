@@ -12,6 +12,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
@@ -21,6 +22,7 @@ namespace MunchkinUWP.Pages
     {
         // Member Vars ====================================================================
         Game ViewModel = AppModel.Instance.MainObject;
+        object STDAcrylicBrush;
         public BattlePage()
         {
             //ThemeManager.ChangeTheme(new Uri("ms-appx:///Themes/PurpleMongooseTheme.xaml"));
@@ -30,6 +32,19 @@ namespace MunchkinUWP.Pages
             {
                 CommandbarBattle.DefaultLabelPosition = CommandBarDefaultLabelPosition.Right;
             }
+
+            if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.AcrylicBrush"))
+            {
+                STDAcrylicBrush = new Windows.UI.Xaml.Media.AcrylicBrush()
+                {
+                    BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
+                    FallbackColor = Windows.UI.Color.FromArgb(255, 220, 220, 220),
+                    TintColor = Windows.UI.Color.FromArgb(200, 220, 220, 220),
+                    Opacity = 100,
+                    TintOpacity = 90,
+                };
+            }
+
         }
         // Navigation ======================================================================
         async void GoToPageRandom(object sender, RoutedEventArgs e)
@@ -64,7 +79,17 @@ namespace MunchkinUWP.Pages
                 item.PropertyChanged -= (x, y) => lstMunchkinsBattle_UIRefresh();
                 item.PropertyChanged += (x, y) => lstMunchkinsBattle_UIRefresh();
             }
-
+            if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Media.AcrylicBrush"))
+            {
+                try
+                {
+                    (this).Background = (AcrylicBrush)Resources["SystemControlAcrylicWindowBrush"];
+                    //this.Background = (AcrylicBrush)STDAcrylicBrush;
+                }
+                catch (Exception)
+                {
+                }
+            }
         }
         
         //############################################################################################
