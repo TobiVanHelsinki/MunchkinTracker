@@ -1,1 +1,0 @@
-C:\Users\Tobiv\Source\repos\MunchkinTracker\MunchkinUWP\bin\ARM\Release\Upload\MunchkinUWP_1.6.0.0\MunchkinUWP_1.6.0.0_x86_x64_arm.appxbundle

@@ -1,1 +1,0 @@
-MainPackage=C:\Users\Tobiv\Source\repos\MunchkinTracker\MunchkinUWP\bin\x64\Release\Upload\MunchkinUWP_1.6.0.0_x64.appx
