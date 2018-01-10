@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/TobiVanHelsinki/MunchkinTracker">
-    <img src="https://github.com/TobiVanHelsinki/MunchkinTracker/blob/master/MunchkinUWP/Assets/LogoSource/Logo.png" width=80 height=80>
+    <img src="https://github.com/TobiVanHelsinki/MunchkinTracker/blob/master/MunchkinUWP/Assets/LogoSource/Logo.png" width=160 height=160>
   </a>
 
   <h3 align="center">MunchkinTracker</h3>
