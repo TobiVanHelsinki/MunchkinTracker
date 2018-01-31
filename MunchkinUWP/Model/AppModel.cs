@@ -1,9 +1,9 @@
-﻿using TLIB.Model;
+﻿using TLIB_UWPFRAME.Model;
 using Windows.UI.Xaml;
 
 namespace MunchkinUWP.Model
 {
-    public class AppModel : TLIB.Model.SharedAppModel<Game>
+    public class AppModel : TLIB_UWPFRAME.Model.SharedAppModel<Game>
     {
         public AppModel() : base()
         {

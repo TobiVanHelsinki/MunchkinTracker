@@ -5,9 +5,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using TLIB;
-using TLIB.IO;
-using TLIB.Model;
+using TLIB_UWPFRAME;
+using TLIB_UWPFRAME.IO;
+using TLIB_UWPFRAME.Model;
 
 namespace MunchkinUWP.Model
 {
@@ -22,7 +22,7 @@ namespace MunchkinUWP.Model
         Pwr_Reverse = 31,
         Reihe = 40,
     }
-    public class Game : INotifyPropertyChanged, TLIB.Model.IMainType
+    public class Game : INotifyPropertyChanged, TLIB_UWPFRAME.Model.IMainType
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public event PropertyChangedEventHandler OrderChanged;
@@ -43,8 +43,8 @@ namespace MunchkinUWP.Model
         {
             if (e.PropertyName.Contains("MainObject"))
             {
-                this.SaveRequest -= async (x, y) => await TLIB.IO.SharedIO<Game>.SaveAtOriginPlace(this, eUD: TLIB.IO.UserDecision.ThrowError);
-                this.SaveRequest += async (x, y) => await TLIB.IO.SharedIO<Game>.SaveAtOriginPlace(this, eUD: TLIB.IO.UserDecision.ThrowError);
+                this.SaveRequest -= async (x, y) => await TLIB_UWPFRAME.IO.SharedIO<Game>.SaveAtOriginPlace(this, eUD: TLIB_UWPFRAME.IO.UserDecision.ThrowError);
+                this.SaveRequest += async (x, y) => await TLIB_UWPFRAME.IO.SharedIO<Game>.SaveAtOriginPlace(this, eUD: TLIB_UWPFRAME.IO.UserDecision.ThrowError);
             }
         }
 

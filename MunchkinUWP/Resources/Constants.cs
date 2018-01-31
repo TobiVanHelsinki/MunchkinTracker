@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using TLIB;
-using TLIB.Model;
+using TLIB_UWPFRAME;
+using TLIB_UWPFRAME.Model;
 
 namespace MunchkinUWP
 {
-    public class Constants : TLIB.SharedConstants
+    public class Constants : TLIB_UWPFRAME.SharedConstants
     {
         public const string APP_NAME = "Munchkin Tracker";
         public const string SAVE_GAME = "SAVE_GAME";

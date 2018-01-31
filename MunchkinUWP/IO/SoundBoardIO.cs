@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using TLIB;
-using TLIB.IO;
+using TLIB_UWPFRAME;
+using TLIB_UWPFRAME.IO;
 using Windows.Storage;
 using Windows.UI.Xaml.Controls;
 

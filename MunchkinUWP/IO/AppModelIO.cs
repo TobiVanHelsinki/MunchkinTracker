@@ -3,11 +3,11 @@ using Newtonsoft.Json;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using TLIB.Model;
+using TLIB_UWPFRAME.Model;
 
 namespace MunchkinUWP.IO
 {
-    public class AppModelIO : TLIB.IO.SharedIO<Game>
+    public class AppModelIO : TLIB_UWPFRAME.IO.SharedIO<Game>
     {
     }
 }

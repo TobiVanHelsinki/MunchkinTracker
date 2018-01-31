@@ -115,16 +115,6 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <PRIResource Include="strings\de-de\Resources.resw" />
-    <None Include="AppPackages\MunchkinUWP_1.1.0.0_Test.7z" />
-    <None Include="AppPackages\MunchkinUWP_1.1.0.0_x86_x64_arm_bundle.appxupload" />
-    <None Include="AppPackages\MunchkinUWP_1.1.6.0_Test.7z" />
-    <None Include="AppPackages\MunchkinUWP_1.1.6.0_x86_x64_arm_bundle.appxupload" />
-    <None Include="AppPackages\MunchkinUWP_1.2.4.0_Test.7z" />
-    <None Include="AppPackages\MunchkinUWP_1.2.4.0_x86_x64_arm_bundle.appxupload" />
-    <None Include="AppPackages\MunchkinUWP_1.2.8.0_Test.7z" />
-    <None Include="AppPackages\MunchkinUWP_1.2.8.0_x86_x64_arm_bundle.appxupload" />
-    <None Include="AppPackages\MunchkinUWP_1.3.10.0_Test.7z" />
-    <None Include="AppPackages\MunchkinUWP_1.3.10.0_x86_x64_arm_bundle.appxupload" />
     <None Include="Assets\Sounds\WilhelmScream.ogg" />
     <None Include="MunchkinUWP_StoreKey.pfx" />
     <None Include="other\DeadCodeDetectionRules .ruleset" />
@@ -304,7 +294,7 @@
       <Name>Windows Mobile Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>
-  <Import Project="..\..\TLIB\TLIB\TLIB.projitems" Label="Shared" />
+  <Import Project="..\..\TLIB\TLIB_UWPFRAME\TLIB_UWPFRAME.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

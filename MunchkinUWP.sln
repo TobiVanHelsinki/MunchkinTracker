@@ -1,16 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MunchkinUWP", "MunchkinUWP\MunchkinUWP.csproj", "{8C77FF4B-4908-4E54-8339-6F9F507A9D67}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TLIB", "..\TLIB\TLIB\TLIB.shproj", "{C43E2365-5678-4E72-A123-71383DE9B2DC}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TLIB", "..\TLIB\TLIB\TLIB.shproj", "{E3EB87FF-2421-48B9-BE86-A87E9CA0C533}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TLIB_UWPFRAME", "..\TLIB\TLIB_UWPFRAME\TLIB_UWPFRAME.shproj", "{C43E2365-5678-4E72-A123-71383DE9B2DC}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		..\TLIB\TLIB\TLIB.projitems*{8c77ff4b-4908-4e54-8339-6f9f507a9d67}*SharedItemsImports = 4
-		..\TLIB\TLIB\TLIB.projitems*{c43e2365-5678-4e72-a123-71383de9b2dc}*SharedItemsImports = 13
+		..\TLIB\TLIB_UWPFRAME\TLIB_UWPFRAME.projitems*{8c77ff4b-4908-4e54-8339-6f9f507a9d67}*SharedItemsImports = 4
+		..\TLIB\TLIB_UWPFRAME\TLIB_UWPFRAME.projitems*{c43e2365-5678-4e72-a123-71383de9b2dc}*SharedItemsImports = 13
+		..\TLIB\TLIB\TLIB.projitems*{e3eb87ff-2421-48b9-be86-a87e9ca0c533}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM

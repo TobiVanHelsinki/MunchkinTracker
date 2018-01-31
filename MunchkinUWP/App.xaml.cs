@@ -1,9 +1,9 @@
 ﻿using MunchkinUWP.IO;
 using MunchkinUWP.Model;
 using System;
-using TLIB.IO;
-using TLIB.Model;
-using TLIB.Settings;
+using TLIB_UWPFRAME.IO;
+using TLIB_UWPFRAME.Model;
+using TLIB_UWPFRAME.Settings;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Core;

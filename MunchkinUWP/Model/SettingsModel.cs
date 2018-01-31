@@ -2,7 +2,7 @@
 
 namespace MunchkinUWP.Model
 {
-    public class SettingsModel : TLIB.Model.SharedSettingsModel
+    public class SettingsModel : TLIB_UWPFRAME.Model.SharedSettingsModel
     {
 
         public bool GAMEWARNINGS

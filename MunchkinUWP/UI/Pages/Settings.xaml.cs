@@ -12,11 +12,11 @@ using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using TLIB;
+using TLIB_UWPFRAME;
 using System.Collections.ObjectModel;
 using Windows.System.RemoteSystems;
 using System.Collections.Generic;
-using TLIB.Model;
+using TLIB_UWPFRAME.Model;
 
 namespace MunchkinUWP.Pages
 {

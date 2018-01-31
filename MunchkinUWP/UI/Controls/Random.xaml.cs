@@ -1,5 +1,5 @@
 ﻿using MunchkinUWP.Model;
-using TLIB;
+using TLIB_UWPFRAME;
 using Windows.Security.Cryptography;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
