@@ -26,6 +26,6 @@
     <RemoteDebugMachine>T10</RemoteDebugMachine>
     <AuthenticationMode>Universal</AuthenticationMode>
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
-    <UseSimulator>true</UseSimulator>
+    <UseSimulator>false</UseSimulator>
   </PropertyGroup>
 </Project>
