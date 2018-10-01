@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, internalKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, internalKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="App.Text" xml:space="preserve">
     <value>App Name: </value>
@@ -136,13 +136,13 @@
     <value>Das Universum wird zurückgesetzt, fortfahren?</value>
   </data>
   <data name="ConfirmMunchkins" xml:space="preserve">
-    <value>Alle Spieler werden entfertn, fortfahren?</value>
+    <value>Alle Spieler werden entfernt, fortfahren?</value>
   </data>
   <data name="ConfirmStatistics" xml:space="preserve">
     <value>Alle Statistiken werden zurückgesetzt, fortfahren?</value>
   </data>
   <data name="Copy.Text" xml:space="preserve">
-    <value />
+    <value>Kopieren</value>
   </data>
   <data name="DeleteAll.Content" xml:space="preserve">
     <value>App Zurücksetzen</value>
@@ -301,9 +301,6 @@
   <data name="UI_Optionen_ThrownException.Text" xml:space="preserve">
     <value>Original Exception</value>
   </data>
-  <data name="UI_Optionen_Bewerten.Text" xml:space="preserve">
-    <value>Diese App im Store Bewerten</value>
-  </data>
   <data name="UI_Optionen_Datenschutz.Text" xml:space="preserve">
     <value>Diese App sammelt keine persönlichen Daten und gibt sie deswegen auch nicht weiter.
 Mit dieser App können Dateien und Ordner auf dem Dateisystem geöffnet werden. Die App speichert diese Ordner und Dateien nur zur späteren Verwendung. Alle Dateien verbleiben auf dem Dateisystem oder im Microsoft Account.</value>
@@ -379,5 +376,8 @@ Mit dieser App können Dateien und Ordner auf dem Dateisystem geöffnet werden. 
   </data>
   <data name="BtnSound.Label" xml:space="preserve">
     <value>SoundBoard</value>
+  </data>
+  <data name="NewPlayer" xml:space="preserve">
+    <value>Neuer Spieler</value>
   </data>
 </root>

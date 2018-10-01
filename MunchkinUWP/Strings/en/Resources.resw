@@ -112,46 +112,46 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, internalKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, internalKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="App.Text" xml:space="preserve">
     <value>App Name: </value>
   </data>
   <data name="Back.Label" xml:space="preserve">
-    <value>Zurück</value>
+    <value>Back</value>
   </data>
   <data name="BtnBattle.Label" xml:space="preserve">
-    <value>Kampf</value>
+    <value>Battle</value>
   </data>
   <data name="BtnGear.Content" xml:space="preserve">
     <value>Gear</value>
   </data>
   <data name="BtnLevel.Content" xml:space="preserve">
-    <value>Stufe</value>
+    <value>Level</value>
   </data>
   <data name="ConfirmAll" xml:space="preserve">
-    <value>Das Universum wird zurückgesetzt, fortfahren?</value>
+    <value>The universe will be reset, continue?</value>
   </data>
   <data name="ConfirmMunchkins" xml:space="preserve">
-    <value>Alle Spieler werden entfertn, fortfahren?</value>
+    <value>All players will be removed, continue?</value>
   </data>
   <data name="ConfirmStatistics" xml:space="preserve">
-    <value>Alle Statistiken werden zurückgesetzt, fortfahren?</value>
+    <value>All statistics will be reset, proceed?</value>
   </data>
   <data name="Copy.Text" xml:space="preserve">
-    <value />
+    <value>Copy</value>
   </data>
   <data name="DeleteAll.Content" xml:space="preserve">
-    <value>App Zurücksetzen</value>
+    <value>Reset App</value>
   </data>
   <data name="DeleteMunchkins.Content" xml:space="preserve">
-    <value>Munchkins löschen</value>
+    <value>Delete Munchkins</value>
   </data>
   <data name="DeleteStatistics.Content" xml:space="preserve">
-    <value>Statistik bereinigen</value>
+    <value>Clear statistics</value>
   </data>
   <data name="DoppelPunkt.Text" xml:space="preserve">
     <value>:</value>
@@ -160,13 +160,13 @@
     <value>Info</value>
   </data>
   <data name="Kontakt.Text" xml:space="preserve">
-    <value>Kontaktaufnahme über:</value>
+    <value>Contact me via:</value>
   </data>
   <data name="KontaktEmail.Content" xml:space="preserve">
     <value>Email</value>
   </data>
   <data name="MadeBy.Text" xml:space="preserve">
-    <value>Erstellt von:</value>
+    <value>Created by:</value>
   </data>
   <data name="Monster.Text" xml:space="preserve">
     <value>Monster</value>
@@ -178,22 +178,22 @@
     <value>Gear</value>
   </data>
   <data name="Munchkin_Level.Text" xml:space="preserve">
-    <value>Stufe</value>
+    <value>Level</value>
   </data>
   <data name="Munchkin_Power.Text" xml:space="preserve">
-    <value>Stärke</value>
+    <value>Power</value>
   </data>
   <data name="Overview_AppBarButton_Add.Label" xml:space="preserve">
-    <value>Hinzufügen</value>
+    <value>Add</value>
   </data>
   <data name="Overview_AppBarButton_Edit.Label" xml:space="preserve">
-    <value>Bearbeiten</value>
+    <value>Edit</value>
   </data>
   <data name="Overview_AppBarButton_EditFinish.Label" xml:space="preserve">
-    <value>Fertig</value>
+    <value>Finish</value>
   </data>
   <data name="Overview_AppBarButton_Settings.Label" xml:space="preserve">
-    <value>Einstellungen</value>
+    <value>Settings</value>
   </data>
   <data name="Overview_OrderBtn_Alpha.Label" xml:space="preserve">
     <value>ABC</value>
@@ -203,16 +203,16 @@
     <value>LvL</value>
   </data>
   <data name="Overview_OrderBtn_Order.Label" xml:space="preserve">
-    <value>Reihe</value>
+    <value>Order</value>
   </data>
   <data name="Overview_OrderBtn_Power.Label" xml:space="preserve">
-    <value>Stärke</value>
+    <value>Pwr</value>
   </data>
   <data name="Plus.Text" xml:space="preserve">
     <value>+</value>
   </data>
   <data name="SettingsSection.Text" xml:space="preserve">
-    <value>Einstellungen</value>
+    <value>Settings</value>
   </data>
   <data name="Version.Text" xml:space="preserve">
     <value>Version: </value>
@@ -221,152 +221,149 @@
     <value>Vs.</value>
   </data>
   <data name="YesNoDialog.Name" xml:space="preserve">
-    <value>Bestätigen</value>
+    <value>Confirm</value>
   </data>
   <data name="YesNoDialog.PrimaryButtonText" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="YesNoDialog.SecondaryButtonText" xml:space="preserve">
-    <value>Abbrechen</value>
+    <value>Cancel</value>
   </data>
   <data name="PageRandom.PrimaryButtonText" xml:space="preserve">
-    <value>Generiere!</value>
+    <value>generate!</value>
   </data>
   <data name="PageRandom.SecondaryButtonText" xml:space="preserve">
-    <value>Zurück</value>
+    <value>Back</value>
   </data>
   <data name="PageRandom.Title" xml:space="preserve">
-    <value>Zufallsgenerator</value>
+    <value>random number generator</value>
   </data>
   <data name="BtnRandom.Label" xml:space="preserve">
-    <value>Zufall</value>
+    <value>Dice</value>
   </data>
   <data name="BtnBack.Content" xml:space="preserve">
-    <value>Zurück</value>
+    <value>Back</value>
   </data>
   <data name="BtnReset.Label" xml:space="preserve">
     <value>Reset</value>
   </data>
   <data name="ResetGame.Content" xml:space="preserve">
-    <value>Spiel neu starten</value>
+    <value>Restart game</value>
   </data>
   <data name="SpaceforNotes.Title" xml:space="preserve">
-    <value>Raum für Notizen</value>
+    <value>Space for notes</value>
   </data>
   <data name="EditTip.Text" xml:space="preserve">
-    <value>In diesem Modus kannst du deine Munchkins umbenennen und sogar ihre Reihenfolge vertauschen. Nutze dazu drag and drop mit der Maus oder mit dem Finger. Bist du fertig, benutze den Fertig-Button, um diesen Modus zu verlassen.</value>
+    <value>In this mode you can rename your Munchkins and change their order. Use drag and drop with your mouse or finger.  When you're done, use the Finish button to exit this mode.</value>
   </data>
   <data name="StartTipTxT.Text" xml:space="preserve">
-    <value>Es ist sehr einsam hier. Beginne am besten mit dem Plus-Button unten rechts. Mit dem Stift-Button kannst du deine Munchkins nachträglich bearbeiten.</value>
+    <value>It's very lonely here. Start with the plus button at the bottom right. With the pen button you can edit your munchkins afterwards.</value>
   </data>
   <data name="Overview_AppBarButton_Add.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Munchkin hinzufügen</value>
+    <value>Add Munchkin</value>
   </data>
   <data name="Overview_AppBarButton_Edit.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Munchkinliste Bearbeiten</value>
+    <value>Edit Munchkinlist</value>
   </data>
   <data name="Overview_AppBarButton_Settings.ToolTipService.ToolTip" xml:space="preserve">
-    <value>App Einstellungen bearbeiten</value>
+    <value>edit Settings</value>
   </data>
   <data name="Settings_Theme_Dark.Text" xml:space="preserve">
-    <value>Dunkel</value>
+    <value>Dark</value>
   </data>
   <data name="Settings_Theme_Default.Text" xml:space="preserve">
     <value>Default</value>
   </data>
   <data name="Settings_Theme_Light.Text" xml:space="preserve">
-    <value>Hell</value>
+    <value>Ligth</value>
   </data>
   <data name="UI_Optionen_Themes_Header.Text" xml:space="preserve">
-    <value>Themenauswahl</value>
+    <value>Themes</value>
   </data>
   <data name="UI_Optionen_App.Text" xml:space="preserve">
     <value>App</value>
   </data>
   <data name="UI_Optionen_AppLinkBtn.Content" xml:space="preserve">
-    <value>Diese App im Store öffnen</value>
+    <value>Open this App at Store</value>
   </data>
   <data name="UI_Optionen_MoreAppsBtn.Content" xml:space="preserve">
-    <value>Mehr Apps von mir</value>
+    <value>More apps from me</value>
   </data>
   <data name="UI_Optionen_RateBtn.Content" xml:space="preserve">
-    <value>Diese App im Store Bewerten</value>
+    <value>Rate this App at Store</value>
   </data>
   <data name="UI_Optionen_Kontakt_Mail.Text" xml:space="preserve">
-    <value>eMail</value>
+    <value>E-Mail</value>
   </data>
   <data name="UI_Optionen_U_Notifications.Text" xml:space="preserve">
-    <value>Benachrichtigungen</value>
+    <value>Notifications</value>
   </data>
   <data name="UI_Optionen_ThrownException.Text" xml:space="preserve">
     <value>Original Exception</value>
   </data>
-  <data name="UI_Optionen_Bewerten.Text" xml:space="preserve">
-    <value>Diese App im Store Bewerten</value>
-  </data>
   <data name="UI_Optionen_Datenschutz.Text" xml:space="preserve">
-    <value>Diese App sammelt keine persönlichen Daten und gibt sie deswegen auch nicht weiter.
-Mit dieser App können Dateien und Ordner auf dem Dateisystem geöffnet werden. Die App speichert diese Ordner und Dateien nur zur späteren Verwendung. Alle Dateien verbleiben auf dem Dateisystem oder im Microsoft Account.</value>
+    <value>This app does not collect any personal data and therefore does not pass it on.
+With this app you can open files and folders on the file system. The app saves these folders and files only for later use. All files remain on the file system or in the Microsoft account.</value>
   </data>
   <data name="UI_Optionen_KontaktBtn.Content" xml:space="preserve">
-    <value>E-Mail Schreiben</value>
+    <value>write E-Mail</value>
   </data>
   <data name="UI_Optionen_U_Datenschutz.Text" xml:space="preserve">
-    <value>Datenschutzerklärung</value>
+    <value>Privacy policy</value>
   </data>
   <data name="UI_Optionen_Inhaber.Text" xml:space="preserve">
-    <value>App-Inhaber</value>
+    <value>App-Owner</value>
   </data>
   <data name="UI_Optionen_U_Kontakt.Text" xml:space="preserve">
-    <value>Kontakt</value>
+    <value>Contact</value>
   </data>
   <data name="UI_Optionen_Pegasus.Text" xml:space="preserve">
-    <value>Munchkin ist eine eingetragene Marke von Pegasus Games</value>
+    <value>Munchkin is a registered trademark of Pegasus Games</value>
   </data>
   <data name="UI_Optionen_U_Infos.Text" xml:space="preserve">
-    <value>Informationen</value>
+    <value>Information</value>
   </data>
   <data name="UI_Optionen_U_Einstellungen.Text" xml:space="preserve">
-    <value>Einstellungen</value>
+    <value>Settings</value>
   </data>
   <data name="UI_Optionen_U_Hilfe.Text" xml:space="preserve">
-    <value>Hilfe</value>
+    <value>Help</value>
   </data>
   <data name="UI_Optionen_U_Rechtliches.Text" xml:space="preserve">
-    <value>Rechtliches</value>
+    <value>Legal issues</value>
   </data>
   <data name="UI_Optionen_Version.Text" xml:space="preserve">
     <value>Version</value>
   </data>
   <data name="BtnPlayer.Content" xml:space="preserve">
-    <value>Munchkins hinzufügen</value>
+    <value>Add Munchkins</value>
   </data>
   <data name="UI_Optionen_ListViewShortMode_Header.Text" xml:space="preserve">
-    <value>Kurze Einträge in der Munchkin Liste?</value>
+    <value>Short entries in the Munchkin list</value>
   </data>
   <data name="UI_Optionen_Toggle.OffContent" xml:space="preserve">
-    <value>Nein</value>
+    <value>No</value>
   </data>
   <data name="UI_Optionen_Toggle.OnContent" xml:space="preserve">
-    <value>Ja</value>
+    <value>Yes</value>
   </data>
   <data name="Help1" xml:space="preserve">
-    <value>Nachdem der aktive Munchkin gelöscht wurde, kann es passieren, dass die Detailanzeige nach einem Wischen schwarz wird. Das ist ein Bug im System, der aber nicht kritisch ist. Wenn das vorkommt, einfach einen anderen Munchkin auswählen, dann klappt alles wieder.</value>
+    <value>After the active Munchkin has been deleted, it can happen that the detail section turns black after a swipe. This is a bug in the system, but it is not critical. If this happens, just select another Munchkin and everything will work again.</value>
   </data>
   <data name="Help1_BlackBug" xml:space="preserve">
-    <value>Schwarze Detailanzeige nach Löschen</value>
+    <value>Black detail section after deletion</value>
   </data>
   <data name="Attention" xml:space="preserve">
-    <value>Achtung</value>
+    <value>Attention</value>
   </data>
   <data name="is" xml:space="preserve">
-    <value>ist</value>
+    <value>is</value>
   </data>
   <data name="UI_Optionen_GameWarnings_Header.Text" xml:space="preserve">
-    <value>Level für Warnung</value>
+    <value>Level for warnings</value>
   </data>
   <data name="UI_Optionen_GameWarnings_Level_Header.Text" xml:space="preserve">
-    <value>Spielwarnungen</value>
+    <value>Game warnings</value>
   </data>
   <data name="Sound_Badum" xml:space="preserve">
     <value>Ba-Dum-Tss</value>
@@ -375,9 +372,12 @@ Mit dieser App können Dateien und Ordner auf dem Dateisystem geöffnet werden. 
     <value>Chord</value>
   </data>
   <data name="Sound_Wilhelm" xml:space="preserve">
-    <value>Willhelmsschrei</value>
+    <value>Willhelmsscream</value>
   </data>
   <data name="BtnSound.Label" xml:space="preserve">
     <value>SoundBoard</value>
+  </data>
+  <data name="NewPlayer" xml:space="preserve">
+    <value>New Player</value>
   </data>
 </root>

@@ -241,7 +241,7 @@ namespace MunchkinUWP.Model
         //=============================================================================
         internal void AddMunchkin()
         {
-            string strStdName = "Neuer Spieler";
+            string strStdName = StringHelper.GetString("NewPlayer");
             string strNewName = strStdName;
             int count = 0;
             while (MunchkinNameExists(strNewName))
