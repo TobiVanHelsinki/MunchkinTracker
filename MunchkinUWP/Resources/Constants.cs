@@ -19,7 +19,7 @@ namespace MunchkinUWP
 
         internal const uint STD_RANDOM_MAX = 6;
         internal const uint STD_RANDOMMAXTRIES = 100;
-        internal const int STD_AUTOSAVE_INTERVAL = 5000;
+        internal const int STD_AUTOSAVE_INTERVAL = 2000;
 
         //========================================================================
 
