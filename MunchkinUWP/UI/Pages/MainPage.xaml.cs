@@ -3,7 +3,7 @@ using System;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
-using TLIB_UWPFRAME.Model;
+using TAPPLICATION.Model;
 using Windows.Foundation.Metadata;
 using Windows.Media.Playback;
 using Windows.UI.Core;
@@ -36,14 +36,14 @@ namespace MunchkinUWP.UI.Converter
 }
 namespace MunchkinUWP.Pages
 {
-    public sealed partial class MainPage : Page
+    internal sealed partial class MainPage : Page
     {
         // Member Vars ====================================================================
         Game ViewModel = AppModel.Instance.MainObject;
         bool m_bDetailIsReloading;
         bool m_bMasterIsReloading;
         MunchkinOrder m_eOrderBeforeBattle = MunchkinOrder.undef;
-        public MainPage()
+        internal MainPage()
         {
             RequestedTheme = SettingsModel.Instance.THEME;
             InitializeComponent();
@@ -113,7 +113,7 @@ namespace MunchkinUWP.Pages
                 ViewModel.OrderChanged += new PropertyChangedEventHandler(RefreshOrderUI);
                 ViewModel.SetNewOrder(MunchkinOrder.Reihe);
                 ViewModel.CurrentMunchkChanged += CurrentMunchkChanged;
-                ViewModel.lstMunchkin.CollectionChanged += LstMunchkin_CollectionChanged;
+                ViewModel.Munchkin.CollectionChanged += LstMunchkin_CollectionChanged;
                 AppModel.Instance.lstNotifications.CollectionChanged += (x, y) => ShowError(y);
 
                 UpdateForVisualState(OverviewState);
@@ -124,14 +124,14 @@ namespace MunchkinUWP.Pages
             {
                 foreach (Notification item in y.NewItems)
                 {
-                    if (!item.bIsRead)
+                    if (!item.IsRead)
                     {
-                        var messageDialog = new MessageDialog(item.strMessage);
+                        var messageDialog = new MessageDialog(item.Message);
                         messageDialog.Commands.Add(new UICommand(
                             "OK"));
                         messageDialog.DefaultCommandIndex = 0;
                         await messageDialog.ShowAsync();
-                        item.bIsRead = true;
+                        item.IsRead = true;
                     }
                 }
             }
@@ -172,11 +172,11 @@ namespace MunchkinUWP.Pages
         // States ============================================================================
         void LstMunchkin_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-            if (ViewModel.oCurrentMunchkin == null && ViewModel.lstMunchkin.Count != 0)
+            if (ViewModel.CurrentMunchkin == null && ViewModel.Munchkin.Count != 0)
             {
-                ViewModel.oCurrentMunchkin = ViewModel.lstMunchkin.First();
+                ViewModel.CurrentMunchkin = ViewModel.Munchkin.First();
             }
-            if (ViewModel.lstMunchkin.Count == 0)
+            if (ViewModel.Munchkin.Count == 0)
             {
                 StartTipTxT.Visibility = Visibility.Visible;
             }
@@ -188,7 +188,7 @@ namespace MunchkinUWP.Pages
 
         void CurrentMunchkChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (null == ViewModel.oCurrentMunchkin)
+            if (null == ViewModel.CurrentMunchkin)
             {// to provide a xaml exception when pivot item is null
                 UpdateForVisualState(OverviewState);
             }
@@ -198,7 +198,7 @@ namespace MunchkinUWP.Pages
 
         void UpdateForVisualState(VisualState newState)
         {
-            if (ViewModel.oCurrentMunchkin != null && Window.Current.Bounds.Width >= 720)
+            if (ViewModel.CurrentMunchkin != null && Window.Current.Bounds.Width >= 720)
             {
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
                 if (WideState != AdaptiveStates.CurrentState)
@@ -208,7 +208,7 @@ namespace MunchkinUWP.Pages
                 return;
             }
 
-            if (newState == DetailState & ViewModel.oCurrentMunchkin != null)
+            if (newState == DetailState & ViewModel.CurrentMunchkin != null)
             {
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
                 if (DetailState != AdaptiveStates.CurrentState)
@@ -231,59 +231,59 @@ namespace MunchkinUWP.Pages
         // Detail View UI Handling =======================================================
         void BtnLevelLess_Click(object sender, RoutedEventArgs e)
         {
-            ((Munchkin)((Button)e.OriginalSource).DataContext).nLevel--;
+            ((Munchkin)((Button)e.OriginalSource).DataContext).Level--;
         }
         void BtnGearLess_Click(object sender, RoutedEventArgs e)
         {
-            ((Munchkin)((Button)e.OriginalSource).DataContext).nGear--;
+            ((Munchkin)((Button)e.OriginalSource).DataContext).Gear--;
         }
         void BtnLevelMore_Click(object sender, RoutedEventArgs e)
         {
-            ((Munchkin)((Button)e.OriginalSource).DataContext).nLevel++;
+            ((Munchkin)((Button)e.OriginalSource).DataContext).Level++;
         }
         void BtnGearMore_Click(object sender, RoutedEventArgs e)
         {
-            ((Munchkin)((Button)e.OriginalSource).DataContext).nGear++;
+            ((Munchkin)((Button)e.OriginalSource).DataContext).Gear++;
         }
         void TextBoxNotes_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ViewModel.oCurrentMunchkin.strNotes = ((TextBox)sender).Text;
+            ViewModel.CurrentMunchkin.Notes = ((TextBox)sender).Text;
         }
         void SwitchGender(object sender, TappedRoutedEventArgs e)
         {
-            Munchkin.eGenderTyp eCurrentGender = ((Munchkin)(((ContentPresenter)sender).DataContext)).eGender;
+            Munchkin.GenderTyp eCurrentGender = ((Munchkin)(((ContentPresenter)sender).DataContext)).Gender;
             switch (eCurrentGender)
             {
-                case Munchkin.eGenderTyp.m:
-                    eCurrentGender = Munchkin.eGenderTyp.w;
+                case Munchkin.GenderTyp.m:
+                    eCurrentGender = Munchkin.GenderTyp.w;
                     ((ContentPresenter)sender).ContentTemplate = GenderFemale;
                     break;
-                case Munchkin.eGenderTyp.w:
-                    eCurrentGender = Munchkin.eGenderTyp.s;
+                case Munchkin.GenderTyp.w:
+                    eCurrentGender = Munchkin.GenderTyp.s;
                     ((ContentPresenter)sender).ContentTemplate = GenderNone;
                     break;
-                case Munchkin.eGenderTyp.s:
-                    eCurrentGender = Munchkin.eGenderTyp.m;
+                case Munchkin.GenderTyp.s:
+                    eCurrentGender = Munchkin.GenderTyp.m;
                     ((ContentPresenter)sender).ContentTemplate = GenderMale;
                     break;
                 default:
-                    eCurrentGender = Munchkin.eGenderTyp.s;
+                    eCurrentGender = Munchkin.GenderTyp.s;
                     ((ContentPresenter)sender).ContentTemplate = GenderNone;
                     break;
             }
-           ((Munchkin)(((ContentPresenter)sender).DataContext)).eGender = eCurrentGender;
+           ((Munchkin)(((ContentPresenter)sender).DataContext)).Gender = eCurrentGender;
         }
         void Gender_Loaded(object sender, RoutedEventArgs e)
         {
-            switch (((Munchkin)(((ContentPresenter)sender).DataContext)).eGender)
+            switch (((Munchkin)(((ContentPresenter)sender).DataContext)).Gender)
             {
-                case Munchkin.eGenderTyp.m:
+                case Munchkin.GenderTyp.m:
                     ((ContentPresenter)sender).ContentTemplate = GenderMale;
                     break;
-                case Munchkin.eGenderTyp.w:
+                case Munchkin.GenderTyp.w:
                     ((ContentPresenter)sender).ContentTemplate = GenderFemale;
                     break;
-                case Munchkin.eGenderTyp.s:
+                case Munchkin.GenderTyp.s:
                     ((ContentPresenter)sender).ContentTemplate = GenderNone;
                     break;
                 default:
@@ -312,7 +312,7 @@ namespace MunchkinUWP.Pages
             Overview_OrderBtn_LvL.IsChecked = false;
             Overview_OrderBtn_Order.IsChecked = false;
             Overview_OrderBtn_Power.IsChecked = false;
-            switch (ViewModel.eCurrentOrder)
+            switch (ViewModel.CurrentOrder)
             {
                 case MunchkinOrder.ABC:
                     Overview_OrderBtn_Alpha.IsChecked = true;
@@ -345,8 +345,8 @@ namespace MunchkinUWP.Pages
             if (!m_bMasterIsReloading)
             {
                 m_bMasterIsReloading = true;
-                MasterListView.ItemsSource = ViewModel.SetNewOrder(ViewModel.eCurrentOrder);
-                MasterListView.SelectedItem = ViewModel.oCurrentMunchkin;
+                MasterListView.ItemsSource = ViewModel.SetNewOrder(ViewModel.CurrentOrder);
+                MasterListView.SelectedItem = ViewModel.CurrentMunchkin;
                 m_bMasterIsReloading = false;
             }
         }
@@ -356,8 +356,8 @@ namespace MunchkinUWP.Pages
             if (!m_bDetailIsReloading)
             {
                 m_bDetailIsReloading = true;
-                DetailPivotView.ItemsSource = ViewModel.lstMunchkin;
-                DetailPivotView.SelectedItem = ViewModel.oCurrentMunchkin;
+                DetailPivotView.ItemsSource = ViewModel.Munchkin;
+                DetailPivotView.SelectedItem = ViewModel.CurrentMunchkin;
                 m_bDetailIsReloading = false;
             }
         }
@@ -365,8 +365,8 @@ namespace MunchkinUWP.Pages
         void SelectEditState()
         {
             ApplyStyleToMasterView(MasterListViewState.Edit);
-            m_eOrderBeforeBattle = ViewModel.eCurrentOrder;
-            if (ViewModel.eCurrentOrder != MunchkinOrder.Reihe)
+            m_eOrderBeforeBattle = ViewModel.CurrentOrder;
+            if (ViewModel.CurrentOrder != MunchkinOrder.Reihe)
             {
                 ViewModel.SetNewOrder(MunchkinOrder.Reihe);
             }
@@ -398,7 +398,7 @@ namespace MunchkinUWP.Pages
             Overview_OrderBtn_Power.IsEnabled = true;
             MasterListView.AllowDrop = false;
             MasterListView.CanReorderItems = false;
-            if (ViewModel.oCurrentMunchkin != null && AdaptiveStates.CurrentState == OverviewState)
+            if (ViewModel.CurrentMunchkin != null && AdaptiveStates.CurrentState == OverviewState)
             {
                 UpdateForVisualState(WideState);
             }
@@ -453,11 +453,11 @@ namespace MunchkinUWP.Pages
 
         void Overview_OrderBtn_Alpha_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.SetNewOrder(MunchkinOrder.ABC == ViewModel.eCurrentOrder ? MunchkinOrder.ABC_Reverse : MunchkinOrder.ABC);
+            ViewModel.SetNewOrder(MunchkinOrder.ABC == ViewModel.CurrentOrder ? MunchkinOrder.ABC_Reverse : MunchkinOrder.ABC);
         }
         void Overview_OrderBtn_LvL_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.SetNewOrder(MunchkinOrder.LvL == ViewModel.eCurrentOrder ? MunchkinOrder.LvL_Reverse : MunchkinOrder.LvL);
+            ViewModel.SetNewOrder(MunchkinOrder.LvL == ViewModel.CurrentOrder ? MunchkinOrder.LvL_Reverse : MunchkinOrder.LvL);
         }
         void Overview_OrderBtn_Order_Click(object sender, RoutedEventArgs e)
         {
@@ -466,7 +466,7 @@ namespace MunchkinUWP.Pages
         }
         void Overview_OrderBtn_Power_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.SetNewOrder(MunchkinOrder.Pwr == ViewModel.eCurrentOrder ? MunchkinOrder.Pwr_Reverse : MunchkinOrder.Pwr);
+            ViewModel.SetNewOrder(MunchkinOrder.Pwr == ViewModel.CurrentOrder ? MunchkinOrder.Pwr_Reverse : MunchkinOrder.Pwr);
         }
 
         void AppBarButton_EditFinish_Click(object sender, RoutedEventArgs e) => SelectDisplayState();

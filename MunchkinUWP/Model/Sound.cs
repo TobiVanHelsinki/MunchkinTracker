@@ -2,9 +2,9 @@
 namespace MunchkinUWP.Model
 {
 
-    public class Sound
+    class Sound
     {
-        public enum eSoundName
+        internal enum eSoundName
         {
             Chord = 10,
             Beep = 20,
@@ -18,9 +18,9 @@ namespace MunchkinUWP.Model
             WilhelmScream = 100
         }
 
-        public string Name;
-        public string Description;
-        public string PicturePath;
-        public eSoundName SoundName;
+        internal string Name;
+        internal string Description;
+        //internal string PicturePath;
+        internal eSoundName SoundName;
     }
 }

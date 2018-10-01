@@ -1,32 +1,30 @@
-﻿using System.Collections.Generic;
-using TLIB_UWPFRAME;
-using TLIB_UWPFRAME.Model;
+﻿using MunchkinUWP.Model;
+using System.Collections.Generic;
+using TAPPLICATION;
+using TLIB.PlatformHelper;
 
 namespace MunchkinUWP
 {
-    public class Constants : TLIB_UWPFRAME.SharedConstants
+    class Constants : SharedConstants
     {
-        public const string APP_NAME = "Munchkin Tracker";
-        public const string SAVE_GAME = "SAVE_GAME";
-        public const string FILE_VERSION = "1.0";
-        public const string APP_VERSION = "1.0";
+        internal const string APP_NAME = "Munchkin Tracker";
+        internal const string SAVE_GAME = "SAVE_GAME";
+        internal const string FILE_VERSION = "1.0";
+        internal const string APP_VERSION = "1.0";
 
-        public const string ELEMENT_THEME = "SETTINGS_ELEMENT_THEME";
-        public const string LISTVIEWSHORTMODE = "SETTINGS_LISTVIEWSHORTMODE";
-        public const string CONTAINER_SETTINGS_GAMEWARNINGS_LEVEL = "SETTINGS_GAMEWARNINGS_LEVEL";
-        public const string CONTAINER_SETTINGS_GAMEWARNINGS = "SETTINGS_GAMEWARNINGS";
+        internal const string ELEMENT_THEME = "SETTINGS_ELEMENT_THEME";
+        internal const string LISTVIEWSHORTMODE = "SETTINGS_LISTVIEWSHORTMODE";
+        internal const string CONTAINER_SETTINGS_GAMEWARNINGS_LEVEL = "SETTINGS_GAMEWARNINGS_LEVEL";
+        internal const string CONTAINER_SETTINGS_GAMEWARNINGS = "SETTINGS_GAMEWARNINGS";
 
-        public const uint STD_RANDOM_MAX = 6;
-        public const uint STD_RANDOMMAXTRIES = 100;
-        public const int STD_AUTOSAVE_INTERVAL = 5000;
+        internal const uint STD_RANDOM_MAX = 6;
+        internal const uint STD_RANDOMMAXTRIES = 100;
+        internal const int STD_AUTOSAVE_INTERVAL = 5000;
 
         //========================================================================
 
-        public const string APP_STORE_LINK = "ms-windows-store://pdp/?productid=9ncxwgx1kr8s";
-        public const string APP_STORE_REVIEW_LINK = "ms-windows-store://review/?ProductId=9ncxwgx1kr8s";
-
-        public static List<HelpEntry> HelpList = new List<HelpEntry>() {
-            new HelpEntry() { Paragraph = CrossPlatformHelper.GetString("Help1_BlackBug"), Text = CrossPlatformHelper.GetString("Help1") },
+        internal static List<HelpEntry> HelpList = new List<HelpEntry>() {
+            new HelpEntry() { Paragraph = StringHelper.GetString("Help1_BlackBug"), Text = StringHelper.GetString("Help1") },
        };
     }
 }

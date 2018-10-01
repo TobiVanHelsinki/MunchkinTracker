@@ -1,13 +1,20 @@
-﻿using MunchkinUWP.Model;
-using Newtonsoft.Json;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-using TLIB_UWPFRAME.Model;
+﻿using System.Threading.Tasks;
+using MunchkinUWP.Model;
+using TAPPLICATION.IO;
+using TLIB.IO;
 
 namespace MunchkinUWP.IO
 {
-    public class AppModelIO : TLIB_UWPFRAME.IO.SharedIO<Game>
+    public class AppModelIO : SharedIO<Game>
     {
+
+        internal async static Task<Game> LoadGame()
+        {
+            return await Load(AppModel.SaveGamePlace);
+        }
+        internal async static Task SaveGame()
+        {
+            await Save(AppModel.Instance.MainObject, UserDecision.ThrowError, SaveType.Auto, AppModel.SaveGamePlace);
+        }
     }
 }

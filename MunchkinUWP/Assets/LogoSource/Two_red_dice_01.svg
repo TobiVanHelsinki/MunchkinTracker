@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+<!DOCTYPE svg internal "-//W3C//DTD SVG 1.0//EN"
  "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
 <svg height="430" version="1.0" width="671" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <metadata>
@@ -33,10 +33,10 @@
         <dc:date></dc:date>
         <dc:format>image/svg+xml</dc:format>
         <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-        <cc:license rdf:resource="http://web.resource.org/cc/PublicDomain"/>
+        <cc:license rdf:resource="http://web.resource.org/cc/internalDomain"/>
         <dc:language>en</dc:language>
       </cc:Work>
-      <cc:License rdf:about="http://web.resource.org/cc/PublicDomain">
+      <cc:License rdf:about="http://web.resource.org/cc/internalDomain">
         <cc:permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
         <cc:permits rdf:resource="http://web.resource.org/cc/Distribution"/>
         <cc:permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/>

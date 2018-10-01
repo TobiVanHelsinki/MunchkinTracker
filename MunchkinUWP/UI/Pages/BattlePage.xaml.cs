@@ -1,29 +1,22 @@
 ﻿using MunchkinUWP.Model;
 using System;
-using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
-using ThemeManagerRt;
-using TLIB_UWPFRAME.Model;
 using Windows.Foundation.Metadata;
-using Windows.UI.Core;
-using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 namespace MunchkinUWP.Pages
 {
-    public sealed partial class BattlePage : Page
+    internal sealed partial class BattlePage : Page
     {
         // Member Vars ====================================================================
         Game ViewModel = AppModel.Instance.MainObject;
         object STDAcrylicBrush;
-        public BattlePage()
+        internal BattlePage()
         {
             //ThemeManager.ChangeTheme(new Uri("ms-appx:///Themes/PurpleMongooseTheme.xaml"));
             this.RequestedTheme = SettingsModel.Instance.THEME;
@@ -73,8 +66,8 @@ namespace MunchkinUWP.Pages
             }
 
             ViewModel.PropertyChanged += ViewModel_PropertyChanged;
-            ViewModel.lstMunchkin.CollectionChanged += (x,y) => lstMunchkinsBattle_UIRefresh();
-            foreach (var item in ViewModel.lstMunchkin)
+            ViewModel.Munchkin.CollectionChanged += (x,y) => lstMunchkinsBattle_UIRefresh();
+            foreach (var item in ViewModel.Munchkin)
             {
                 item.PropertyChanged -= (x, y) => lstMunchkinsBattle_UIRefresh();
                 item.PropertyChanged += (x, y) => lstMunchkinsBattle_UIRefresh();
@@ -100,9 +93,9 @@ namespace MunchkinUWP.Pages
         void lstMunchkinsBattle_UIRefresh()
         {
             bIsInUpdate = true;
-            for (int i = 0; i < ViewModel.lstMunchkin.Count(); i++)
+            for (int i = 0; i < ViewModel.Munchkin.Count(); i++)
             {
-                if (ViewModel.lstMunchkin[i].bIsBattle)
+                if (ViewModel.Munchkin[i].IsBattle)
                 {
                     //if (Munchkins.Visibility == Visibility.Visible)
                     {
@@ -132,15 +125,15 @@ namespace MunchkinUWP.Pages
         {
             if (!bIsInUpdate)
             {
-                foreach (var item in ViewModel.lstMunchkin)
+                foreach (var item in ViewModel.Munchkin)
                 {
                     if (Munchkins.Visibility == Visibility.Visible)
                     {
-                        item.bIsBattle = Munchkins.SelectedItems.Contains(item) ? true : false;
+                        item.IsBattle = Munchkins.SelectedItems.Contains(item) ? true : false;
                     }
                     else
                     {
-                        item.bIsBattle = Munchkins2.SelectedItems.Contains(item) ? true : false;
+                        item.IsBattle = Munchkins2.SelectedItems.Contains(item) ? true : false;
                     }
                 }
                 lstMunchkinsBattle_UIRefresh();
@@ -165,51 +158,51 @@ namespace MunchkinUWP.Pages
 
         void BtnM_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.nMunchkinPowerMod++;
+            ViewModel.MunchkinPowerMod++;
         }
         void BtnL_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.nMunchkinPowerMod--;
+            ViewModel.MunchkinPowerMod--;
         }
 
         void MonsterPwrP1_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.nMonsterPower = ViewModel.nMonsterPower + 1;
+            ViewModel.MonsterPower = ViewModel.MonsterPower + 1;
         }
 
         void MonsterPwrP3_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.nMonsterPower = ViewModel.nMonsterPower + 3;
+            ViewModel.MonsterPower = ViewModel.MonsterPower + 3;
         }
 
         void MonsterPwrP5_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.nMonsterPower = ViewModel.nMonsterPower + 5;
+            ViewModel.MonsterPower = ViewModel.MonsterPower + 5;
         }
 
         void MonsterPwrP10_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.nMonsterPower = ViewModel.nMonsterPower + 10;
+            ViewModel.MonsterPower = ViewModel.MonsterPower + 10;
         }
 
         void MonsterPwrM1_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.nMonsterPower = ViewModel.nMonsterPower - 1;
+            ViewModel.MonsterPower = ViewModel.MonsterPower - 1;
         }
 
         void MonsterPwrM3_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.nMonsterPower = ViewModel.nMonsterPower - 3;
+            ViewModel.MonsterPower = ViewModel.MonsterPower - 3;
         }
 
         void MonsterPwrM5_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.nMonsterPower = ViewModel.nMonsterPower - 5;
+            ViewModel.MonsterPower = ViewModel.MonsterPower - 5;
         }
 
         void MonsterPwrM10_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.nMonsterPower = ViewModel.nMonsterPower - 10;
+            ViewModel.MonsterPower = ViewModel.MonsterPower - 10;
         }
         
         void GoBack(object sender, RoutedEventArgs e)
@@ -232,14 +225,14 @@ namespace MunchkinUWP.Pages
             int nMaxFontSize = 120;
             int nMinFontSize = 60;
 
-            if (ViewModel.nMunchkinPower < ViewModel.nMonsterPower)
+            if (ViewModel.MunchkinPower < ViewModel.MonsterPower)
             {
                 Munchkin_Power.FontSize = nMinFontSize;
-                Monster_Power.FontSize = NewBattleSize(nMinFontSize, nMaxFontSize, ViewModel.nMunchkinPower, ViewModel.nMonsterPower);
+                Monster_Power.FontSize = NewBattleSize(nMinFontSize, nMaxFontSize, ViewModel.MunchkinPower, ViewModel.MonsterPower);
             }
-            else if (ViewModel.nMunchkinPower > ViewModel.nMonsterPower)
+            else if (ViewModel.MunchkinPower > ViewModel.MonsterPower)
             {
-                Munchkin_Power.FontSize = NewBattleSize(nMinFontSize, nMaxFontSize, ViewModel.nMonsterPower, ViewModel.nMunchkinPower);
+                Munchkin_Power.FontSize = NewBattleSize(nMinFontSize, nMaxFontSize, ViewModel.MonsterPower, ViewModel.MunchkinPower);
                 Monster_Power.FontSize = nMinFontSize;
             }
             else

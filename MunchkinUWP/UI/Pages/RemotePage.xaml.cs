@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using TLIB_UWPFRAME;
-using TLIB_UWPFRAME.Model;
+using TAPPLICATION;
+using TAPPLICATION.Model;
 using Windows.ApplicationModel.AppService;
 using Windows.ApplicationModel.Contacts;
 using Windows.ApplicationModel.Resources;
@@ -25,7 +25,7 @@ namespace MunchkinUWP.Pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class RemotePage : Page
+    internal sealed partial class RemotePage : Page
     {
 #pragma warning disable 0169    //  Proactively suppress unused field warning in case Bindings is not used.
         Game ViewModel = AppModel.Instance.MainObject;
@@ -33,7 +33,7 @@ namespace MunchkinUWP.Pages
         readonly AppModel Model = AppModel.Instance;
 #pragma warning restore 0169
 
-        public RemotePage()
+        internal RemotePage()
         {
             this.RequestedTheme = SettingsModel.Instance.THEME;
             this.InitializeComponent();
@@ -66,8 +66,8 @@ namespace MunchkinUWP.Pages
 
 
         // ROME ###############################################################
-        public Dictionary<string, RemoteSystem> DeviceMap = new Dictionary<string, RemoteSystem>();
-        public ObservableCollection<RemoteSystem> DeviceList = new ObservableCollection<RemoteSystem>();
+        internal Dictionary<string, RemoteSystem> DeviceMap = new Dictionary<string, RemoteSystem>();
+        internal ObservableCollection<RemoteSystem> DeviceList = new ObservableCollection<RemoteSystem>();
         private RemoteSystemWatcher m_remoteSystemWatcher;
         private void SearchCleanup()
         {

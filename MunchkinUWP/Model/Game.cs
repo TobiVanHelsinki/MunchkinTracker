@@ -1,13 +1,14 @@
-﻿using System;
+﻿using MunchkinUWP.IO;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
-using TLIB_UWPFRAME;
-using TLIB_UWPFRAME.IO;
-using TLIB_UWPFRAME.Model;
+using TAPPLICATION.IO;
+using TAPPLICATION.Model;
+using TLIB.IO;
+using TLIB.PlatformHelper;
 
 namespace MunchkinUWP.Model
 {
@@ -22,11 +23,11 @@ namespace MunchkinUWP.Model
         Pwr_Reverse = 31,
         Reihe = 40,
     }
-    public class Game : INotifyPropertyChanged, TLIB_UWPFRAME.Model.IMainType
+    public class Game : INotifyPropertyChanged, IMainType
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public event PropertyChangedEventHandler OrderChanged;
-        public event PropertyChangedEventHandler CurrentMunchkChanged;
+        internal event PropertyChangedEventHandler OrderChanged;
+        internal event PropertyChangedEventHandler CurrentMunchkChanged;
         //=============================================================================
         public event EventHandler SaveRequest;
         bool _HasChanges = false;
@@ -39,42 +40,34 @@ namespace MunchkinUWP.Model
             HasChanges = true;
             Tim.Change(Constants.STD_AUTOSAVE_INTERVAL, System.Threading.Timeout.Infinite);
         }
-        private void Game_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            if (e.PropertyName.Contains("MainObject"))
-            {
-                this.SaveRequest -= async (x, y) => await TLIB_UWPFRAME.IO.SharedIO<Game>.SaveAtOriginPlace(this, eUD: TLIB_UWPFRAME.IO.UserDecision.ThrowError);
-                this.SaveRequest += async (x, y) => await TLIB_UWPFRAME.IO.SharedIO<Game>.SaveAtOriginPlace(this, eUD: TLIB_UWPFRAME.IO.UserDecision.ThrowError);
-            }
-        }
-
         //=============================================================================
 
-        private void NotifyPropertyChanged([CallerMemberName] System.String propertyName = "")
+        void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            AnyPropertyChanged();
         }
-        private void NotifyOrderChanged([CallerMemberName] System.String propertyName = "")
+        void NotifyOrderChanged([CallerMemberName] string propertyName = "")
         {
             OrderChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        private void NotifyCurrentMunchkChanged([CallerMemberName] System.String propertyName = "")
+        void NotifyCurrentMunchkChanged([CallerMemberName] string propertyName = "")
         {
             CurrentMunchkChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         //=============================================================================
-        public ObservableCollection<Munchkin> lstMunchkin;
-        public ObservableCollection<RandomResult> lstStatistics;
+        public ObservableCollection<Munchkin> Munchkin;
+        public ObservableCollection<RandomResult> Statistics;
 
-        private Munchkin _oCurrentMunchkin;
-        public Munchkin oCurrentMunchkin
+        Munchkin _CurrentMunchkin;
+        public Munchkin CurrentMunchkin
         {
-            get { return _oCurrentMunchkin; }
+            get { return _CurrentMunchkin; }
             set
             {
                 if (value == null)
                 {
-                    if (lstMunchkin.Contains(_oCurrentMunchkin))
+                    if (Munchkin.Contains(_CurrentMunchkin))
                     {
                         // element still exists, all is ok, no need to do something
                     }
@@ -82,11 +75,11 @@ namespace MunchkinUWP.Model
                     {//element is gone, need to find a new
                         try
                         {
-                            _oCurrentMunchkin = lstMunchkin.First();
+                            _CurrentMunchkin = Munchkin.First();
                         }
                         catch (Exception)
                         {//there are no elements left, we have to assign null
-                            _oCurrentMunchkin = null;
+                            _CurrentMunchkin = null;
                         }
                         NotifyCurrentMunchkChanged();
                         NotifyPropertyChanged();
@@ -94,9 +87,9 @@ namespace MunchkinUWP.Model
                 }
                 else
                 {
-                    if (value != _oCurrentMunchkin)
+                    if (value != _CurrentMunchkin)
                     {
-                        _oCurrentMunchkin = value;
+                        _CurrentMunchkin = value;
                         NotifyCurrentMunchkChanged();
                         NotifyPropertyChanged();
                     }
@@ -104,117 +97,118 @@ namespace MunchkinUWP.Model
             }
         }
 
-        private MunchkinOrder _eCurrentOrder;
-        public MunchkinOrder eCurrentOrder
+        MunchkinOrder _CurrentOrder;
+        public MunchkinOrder CurrentOrder
         {
             get
             {
-                return _eCurrentOrder;
+                return _CurrentOrder;
             }
             set
             {
                 //Order(_eCurrentOrder);
-                if (_eCurrentOrder != value)
+                if (_CurrentOrder != value)
                 {
-                    _eCurrentOrder = value;
+                    _CurrentOrder = value;
                     NotifyOrderChanged();
                 }
             }
         }
         
         //=============================================================================
-        private int _nMonsterPower;
-        public int nMonsterPower
+        int _MonsterPower;
+        public int MonsterPower
         {
             get
             {
-                return _nMonsterPower;
+                return _MonsterPower;
             }
             set
             {
-                _nMonsterPower = value;
+                _MonsterPower = value;
                 NotifyPropertyChanged();
             }
         }
-        private int _nMunchkinPower;
-        public int nMunchkinPower
+        int _MunchkinPower;
+        public int MunchkinPower
         {
             get
             {
-                return _nMunchkinPower;
+                return _MunchkinPower;
             }
             set
             {
-                _nMunchkinPower = value;
+                _MunchkinPower = value;
                 NotifyPropertyChanged();
             }
         }
-        private int _nMunchkinPowerMod;
-        public int nMunchkinPowerMod
+        int _MunchkinPowerMod;
+        public int MunchkinPowerMod
         {
             get
             {
-                return _nMunchkinPowerMod;
+                return _MunchkinPowerMod;
             }
             set
             {
-                _nMunchkinPowerMod = value;
-                NotifyPropertyChanged();
-                CalculateBattle();
-            }
-        }
-        private bool? _bUseLevel = true;
-        public bool? bUseLevel
-        {
-            get
-            {
-                return _bUseLevel;
-            }
-            set
-            {
-                _bUseLevel = value;
+                _MunchkinPowerMod = value;
                 NotifyPropertyChanged();
                 CalculateBattle();
             }
         }
-        private bool? _bUseGear = true;
-        public bool? bUseGear
+        bool? _UseLevel = true;
+        public bool? UseLevel
         {
             get
             {
-                return _bUseGear;
+                return _UseLevel;
             }
             set
             {
-                _bUseGear = value;
+                _UseLevel = value;
+                NotifyPropertyChanged();
+                CalculateBattle();
+            }
+        }
+        bool? _UseGear = true;
+        public bool? UseGear
+        {
+            get
+            {
+                return _UseGear;
+            }
+            set
+            {
+                _UseGear = value;
                 CalculateBattle();
                 NotifyPropertyChanged();
             }
         }
         //=============================================================================
-        private uint _nRandomMax = Constants.STD_RANDOM_MAX;
-        public int nRandomMax
+        uint _RandomMax = Constants.STD_RANDOM_MAX;
+        [Newtonsoft.Json.JsonIgnore]
+        internal int RandomMax
         {
             get
             {
-                return (int)_nRandomMax;
+                return (int)_RandomMax;
             }
             set
             {
                 if (value < 2)
                 {
-                    _nRandomMax = 2;
+                    _RandomMax = 2;
                 }
                 else
                 {
-                    _nRandomMax = (uint)value;
+                    _RandomMax = (uint)value;
                 }
                 NotifyPropertyChanged();
             }
         }
         //SOUNDBOARD ##########################################################
         [Newtonsoft.Json.JsonIgnore]
-        public ObservableCollection<Sound> SoundList = new ObservableCollection<Sound>();
+        internal ObservableCollection<Sound> SoundList = new ObservableCollection<Sound>();
 
         //FILE HANDLING #######################################################
         public string APP_VERSION_NUMBER => Constants.APP_VERSION;
@@ -222,11 +216,7 @@ namespace MunchkinUWP.Model
         public string FILE_VERSION_NUMBER => Constants.FILE_VERSION;
 
         [Newtonsoft.Json.JsonIgnore]
-        public FileInfoClass FileInfo { get; set; } = new FileInfoClass();
-
-        [Newtonsoft.Json.JsonIgnore]
-        Func<string, string, string, IMainType> IMainType.Converter => null;
-
+        public FileInfoClass FileInfo { get; set; } = AppModel.SaveGamePlace;
 
         public string MakeName()
         {
@@ -236,19 +226,20 @@ namespace MunchkinUWP.Model
         //=============================================================================
         public Game()
         {
-            SoundList.Add(new Sound() { Name = CrossPlatformHelper.GetString("Sound_Badum"), SoundName = Sound.eSoundName.badumtshh, Description = "" });
-            SoundList.Add(new Sound() { Name = CrossPlatformHelper.GetString("Sound_Wilhelm"), SoundName = Sound.eSoundName.WilhelmScream, Description = "" });
-            //SoundList.Add(new Sound() { Name = CrossPlatformHelper.GetString("Sound_Chord"), SoundName = Sound.eSoundName.Chord, Description = "" });
+            SoundList.Add(new Sound() { Name = StringHelper.GetString("Sound_Badum"), SoundName = Sound.eSoundName.badumtshh, Description = "" });
+            SoundList.Add(new Sound() { Name = StringHelper.GetString("Sound_Wilhelm"), SoundName = Sound.eSoundName.WilhelmScream, Description = "" });
+            //SoundList.Add(new Sound() { Name = StringHelper.GetString("Sound_Chord"), SoundName = Sound.eSoundName.Chord, Description = "" });
 
-            Tim = new System.Threading.Timer((x)=> { SaveRequest?.Invoke(x, new EventArgs()); HasChanges = false; },this, System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
-            PropertyChanged += Game_PropertyChanged;
-            lstMunchkin = new ObservableCollection<Munchkin>();
-            lstStatistics = new ObservableCollection<RandomResult>();
-            lstMunchkin.CollectionChanged += LstMunchkin_CollectionChanged;
+            Tim = new System.Threading.Timer((x)=> {
+                SaveRequest?.Invoke(x, new EventArgs()); HasChanges = false; },this, System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
+            Munchkin = new ObservableCollection<Munchkin>();
+            Munchkin.CollectionChanged += Munchkin_CollectionChanged;
+            Statistics = new ObservableCollection<RandomResult>();
+            Statistics.CollectionChanged += (x, y) => AnyPropertyChanged();
         }
 
         //=============================================================================
-        public void AddMunchkin()
+        internal void AddMunchkin()
         {
             string strStdName = "Neuer Spieler";
             string strNewName = strStdName;
@@ -258,13 +249,13 @@ namespace MunchkinUWP.Model
                 count++;
                 strNewName = strStdName + "" + count;
             }
-            lstMunchkin.Add(new Munchkin(strNewName, 1, 0, lstMunchkinMaxCount()+1, Munchkin.eGenderTyp.s));
+            Munchkin.Add(new Munchkin(strNewName, 1, 0, MunchkinMaxCount()+1, Model.Munchkin.GenderTyp.s));
         }
-        private bool MunchkinNameExists(string strName)
+        bool MunchkinNameExists(string strName)
         {
-            foreach (Munchkin item in lstMunchkin)
+            foreach (Munchkin item in Munchkin)
             {
-                if (strName == item.strName)
+                if (strName == item.Name)
                 {
                     return true;
                 }
@@ -272,27 +263,27 @@ namespace MunchkinUWP.Model
             return false;
         }
 
-        public void RemoveMunchkin(Munchkin rem)
+        internal void RemoveMunchkin(Munchkin rem)
         {
-            lstMunchkin.Remove(rem);
+            Munchkin.Remove(rem);
         }
 
         /// <summary>  
         ///  returns the highes used order-value at all Munchkins
         /// </summary>  
-        private int lstMunchkinMaxCount()
+        int MunchkinMaxCount()
         {
             int nTemp = int.MinValue;
-            foreach (Munchkin item in lstMunchkin)
+            foreach (Munchkin item in Munchkin)
             {
-                if (nTemp < item.nOrder)
+                if (nTemp < item.Order)
                 {
-                    nTemp = item.nOrder;
+                    nTemp = item.Order;
                 }
             }
-            if (nTemp <= lstMunchkin.Count - 1)
+            if (nTemp <= Munchkin.Count - 1)
             {
-                nTemp = lstMunchkin.Count - 1;
+                nTemp = Munchkin.Count - 1;
             }
             return nTemp;
         }
@@ -304,122 +295,66 @@ namespace MunchkinUWP.Model
         /// <note>  
         ///  The Order Property of the Elements is not changed, but get's refreshed, when ordering after the munchkin order proprty
         /// </note>  
-        public IEnumerable<Munchkin> SetNewOrder(MunchkinOrder eOrder)
+        internal IEnumerable<Munchkin> SetNewOrder(MunchkinOrder eOrder)
         {
             IEnumerable<Munchkin> sortQuery = null; 
             switch (eOrder)
             {
                 case MunchkinOrder.ABC:
                     sortQuery =
-                        from x in lstMunchkin
-                        orderby x.strName ascending
+                        from x in Munchkin
+                        orderby x.Name ascending
                         select x;
                     break;
                 case MunchkinOrder.LvL:
                     sortQuery =
-                        from x in lstMunchkin
-                        orderby x.nLevel ascending
+                        from x in Munchkin
+                        orderby x.Level ascending
                         select x;
                     break;
                 case MunchkinOrder.Pwr:
                     sortQuery =
-                        from x in lstMunchkin
-                        orderby x.nPower descending
+                        from x in Munchkin
+                        orderby x.Power descending
                         select x;
                     break;
                 case MunchkinOrder.Reihe:
                     SetCurrentOrderasMainOrder();
-                    sortQuery = lstMunchkin;
+                    sortQuery = Munchkin;
                     break;
                 case MunchkinOrder.ABC_Reverse:
                     sortQuery =
-                        from x in lstMunchkin
-                        orderby x.strName descending
+                        from x in Munchkin
+                        orderby x.Name descending
                         select x;
                     break;
                 case MunchkinOrder.LvL_Reverse:
                     sortQuery =
-                        from x in lstMunchkin
-                        orderby x.nLevel descending
+                        from x in Munchkin
+                        orderby x.Level descending
                         select x;
                     break;
                 case MunchkinOrder.Pwr_Reverse:
                     sortQuery =
-                        from x in lstMunchkin
-                        orderby x.nPower ascending
+                        from x in Munchkin
+                        orderby x.Power ascending
                         select x;
                     break;
                 default:
                     break;
             }
-            this.eCurrentOrder = eOrder;
-
+            this.CurrentOrder = eOrder;
             return sortQuery;
-
-            //switch (eOrder)
-            //{
-            //    case MunchkinOrder.ABC:
-            //        for (int i = 0; i < lst.Count - 1; i++)
-            //        {
-            //            for (int j = 0; j < lst.Count - 1; j++)
-            //            {
-            //                if (0 < lst[j].strName.CompareTo(lst[j + 1].strName))
-            //                {
-            //                    lst.Move(j, j + 1);
-            //                }
-            //            }
-            //        }
-            //        break;
-            //    case MunchkinOrder.LvL:
-            //        for (int i = 0; i < lst.Count - 1; i++)
-            //        {
-            //            for (int j = 0; j < lst.Count - 1; j++)
-            //            {
-            //                if (lst[j].nLevel > lst[j + 1].nLevel)
-            //                {
-            //                    lst.Move(j, j + 1);
-            //                }
-            //            }
-            //        }
-            //        break;
-            //    case MunchkinOrder.Pwr:
-            //        for (int i = 0; i < lst.Count - 1; i++)
-            //        {
-            //            for (int j = 0; j < lst.Count - 1; j++)
-            //            {
-            //                if (lst[j].nPower < lst[j + 1].nPower)
-            //                {
-            //                    lst.Move(j, j + 1);
-            //                }
-            //            }
-            //        }
-            //        break;
-            //    case MunchkinOrder.Reihe:
-            //        for (int i = 0; i < lst.Count - 1; i++)
-            //        {
-            //            for (int j = 0; j < lst.Count - 1; j++)
-            //            {
-            //                if (lst[j].nOrder > lst[j + 1].nOrder)
-            //                {
-            //                    lst.Move(j, j + 1);
-            //                }
-            //            }
-            //        }
-            //        SetCurrentOrderasMainOrder(lst);
-            //        break;
-            //    default:
-            //        break;
-            //}
         }
         /// <summary>  
         ///  refreshes, the ordering of each munchkin element at the list to avoid spacing between the order properties
         /// </summary>  
-        private void SetCurrentOrderasMainOrder()
+        void SetCurrentOrderasMainOrder()
         {
             int i = 0;
-            foreach (Munchkin item in lstMunchkin)
+            foreach (Munchkin item in Munchkin)
             {
-                item.nOrder = i;
+                item.Order = i;
                 i++;
             }
         }
@@ -428,119 +363,120 @@ namespace MunchkinUWP.Model
         /// <summary>  
         ///  listen for changes of the 
         /// </summary>  
-        private void LstMunchkin_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        void Munchkin_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-            foreach (Munchkin item in lstMunchkin)
+            foreach (Munchkin item in Munchkin)
             {
                 item.PropertyChanged -= MunchkinChanged;
                 item.PropertyChanged += MunchkinChanged;
             }
+            AnyPropertyChanged();
         }
 
-        private void MunchkinChanged(object sender, PropertyChangedEventArgs e)
+        void MunchkinChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == "nLevel" || e.PropertyName == "nGear" || e.PropertyName == "bIsBattle")
+            if (e.PropertyName == nameof(Model.Munchkin.Level) || e.PropertyName == nameof(Model.Munchkin.Gear) || e.PropertyName == nameof(Model.Munchkin.IsBattle))
             {
                 CalculateBattle();
             }
-            if (e.PropertyName == "nLevel" || e.PropertyName == "nPower")
+            if (e.PropertyName == nameof(Model.Munchkin.Level) || e.PropertyName == nameof(Model.Munchkin.Power))
             {
                 NotifyOrderChanged();
             }
-
+            AnyPropertyChanged();
         }
 
-        private void CalculateBattle()
+        void CalculateBattle()
         {
-            nMunchkinPower = 0;
-            foreach (Munchkin item in lstMunchkin)
+            MunchkinPower = 0;
+            foreach (Munchkin item in Munchkin)
             {
-                if (item.bIsBattle)
+                if (item.IsBattle)
                 {
-                    if (true == bUseLevel)
+                    if (true == UseLevel)
                     {
-                        nMunchkinPower = nMunchkinPower + item.nLevel;
+                        MunchkinPower = MunchkinPower + item.Level;
                     }
-                    if (true == bUseGear)
+                    if (true == UseGear)
                     {
-                        nMunchkinPower = nMunchkinPower + item.nGear;
+                        MunchkinPower = MunchkinPower + item.Gear;
                     }
                 }
             }
-            nMunchkinPower = nMunchkinPower + nMunchkinPowerMod;
+            MunchkinPower = MunchkinPower + MunchkinPowerMod;
         }
         //=============================================================================
 
         // Reset things =======================================================
 
-        public void ResetGame()
+        internal void ResetGame()
         {
-            foreach (Munchkin item in lstMunchkin)
+            foreach (Munchkin item in Munchkin)
             {
                 item.ClearForNewGame();
             }
             try
             {
-                this.oCurrentMunchkin = this.lstMunchkin.First();
+                this.CurrentMunchkin = this.Munchkin.First();
             }
             catch (Exception)
             {
-                this.oCurrentMunchkin = null;
+                this.CurrentMunchkin = null;
             }
-            this.eCurrentOrder = MunchkinOrder.Reihe;
+            this.CurrentOrder = MunchkinOrder.Reihe;
         }
-        public void ResetAppModel()
+        internal void ResetAppModel()
         {
             ResetBattle();
             ResetMunchkins();
             ResetStatistics();
         }
-        public void ResetMunchkins()
+        internal void ResetMunchkins()
         {
-            this.lstMunchkin.Clear();
-            this.oCurrentMunchkin = null;
-            this.eCurrentOrder = MunchkinOrder.Reihe;
+            this.Munchkin.Clear();
+            this.CurrentMunchkin = null;
+            this.CurrentOrder = MunchkinOrder.Reihe;
         }
-        public void ResetBattle()
+        internal void ResetBattle()
         {
-            this.bUseGear = true;
-            this.bUseLevel = true;
-            this.nMonsterPower = 0;
-            this.nMunchkinPower = 0;
-            this.nMunchkinPowerMod = 0;
-            foreach (Munchkin item in lstMunchkin)
+            this.UseGear = true;
+            this.UseLevel = true;
+            this.MonsterPower = 0;
+            this.MunchkinPower = 0;
+            this.MunchkinPowerMod = 0;
+            foreach (Munchkin item in Munchkin)
             {
-                item.bIsBattle = false;
+                item.IsBattle = false;
             }
         }
-        public void ResetStatistics()
+        internal void ResetStatistics()
         {
-            lstStatistics.Clear();
+            Statistics.Clear();
         }
         // Handle the current munchkin ========================================
-        public void NextMunchkin()
+        internal void NextMunchkin()
         {
-            MunchkinOrder eTemp = eCurrentOrder;
-            eCurrentOrder = MunchkinOrder.Reihe;
+            MunchkinOrder eTemp = CurrentOrder;
+            CurrentOrder = MunchkinOrder.Reihe;
 
-            oCurrentMunchkin = lstMunchkin[(lstMunchkin.IndexOf(oCurrentMunchkin)+1)% lstMunchkin.Count];
+            CurrentMunchkin = Munchkin[(Munchkin.IndexOf(CurrentMunchkin)+1)% Munchkin.Count];
 
-            eCurrentOrder = eTemp;           
+            CurrentOrder = eTemp;           
         }
 
-        public void PrevMunchkin()
+        internal void PrevMunchkin()
         {
-            MunchkinOrder eOldOrder = eCurrentOrder;
-            eCurrentOrder = MunchkinOrder.Reihe;
-            int nIndextemp = (lstMunchkin.IndexOf(oCurrentMunchkin) - 1);
+            MunchkinOrder eOldOrder = CurrentOrder;
+            CurrentOrder = MunchkinOrder.Reihe;
+            int nIndextemp = (Munchkin.IndexOf(CurrentMunchkin) - 1);
             while (nIndextemp<0)
             {
-                nIndextemp = nIndextemp + lstMunchkin.Count;
+                nIndextemp = nIndextemp + Munchkin.Count;
             }
 
-            oCurrentMunchkin = lstMunchkin[nIndextemp];
+            CurrentMunchkin = Munchkin[nIndextemp];
 
-            eCurrentOrder = eOldOrder;
+            CurrentOrder = eOldOrder;
             }
 
     }

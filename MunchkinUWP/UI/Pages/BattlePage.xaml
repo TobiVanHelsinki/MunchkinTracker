@@ -31,13 +31,13 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Grid.ColumnSpan="2" Text="{x:Bind strName, Mode=OneWay}" x:Name="NameDisplay" Style="{StaticResource h1LBlock}"/>
+                    <TextBlock Grid.ColumnSpan="2" Text="{x:Bind Name, Mode=OneWay}" x:Name="NameDisplay" Style="{StaticResource h1LBlock}"/>
                     <TextBlock Grid.Column="0" Grid.Row="1" Style="{ThemeResource h2LBlock}" >
-                            <Run Text="{x:Bind nPower, Mode=OneWay}" FontWeight="Bold"/>
+                            <Run Text="{x:Bind Power, Mode=OneWay}" FontWeight="Bold"/>
                             <Run Text="("/>
-                            <Run Text="{x:Bind nLevel, Mode=OneWay}"/>
+                            <Run Text="{x:Bind Level, Mode=OneWay}"/>
                             <Run Text="+"/>
-                            <Run Text="{x:Bind nGear, Mode=OneWay}"/>
+                            <Run Text="{x:Bind Gear, Mode=OneWay}"/>
                             <Run Text=")"/>
                     </TextBlock>
                 </Grid>
@@ -120,7 +120,7 @@
             <GridView x:Name="Munchkins" Grid.ColumnSpan="4"
                     Loaded="Munchkins_Loaded"
                       SelectionMode="Multiple" SelectionChanged="SelectionChanged"
-                   ItemsSource="{x:Bind ViewModel.lstMunchkin, Mode=OneWay}"
+                   ItemsSource="{x:Bind ViewModel.Munchkin, Mode=OneWay}"
                    ItemTemplate="{StaticResource lstMunchkin}">
                 <GridView.ItemContainerStyle>
                     <Style TargetType="GridViewItem">
@@ -139,7 +139,7 @@
                     <Flyout>
                         <ListView x:Name="Munchkins2" Loaded="Munchkins_Loaded"
                             SelectionMode="Multiple" SelectionChanged="SelectionChanged"
-                            ItemsSource="{x:Bind ViewModel.lstMunchkin, Mode=OneWay}"
+                            ItemsSource="{x:Bind ViewModel.Munchkin, Mode=OneWay}"
                             ItemTemplate="{StaticResource lstMunchkin}">
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="ListViewItem">
@@ -154,13 +154,13 @@
             <ToggleButton
                     Style="{StaticResource h2BattleToggleBtn}"
                     x:Uid="BtnLevel"
-                    IsChecked="{x:Bind ViewModel.bUseLevel, Mode=TwoWay}"
+                    IsChecked="{x:Bind ViewModel.UseLevel, Mode=TwoWay}"
                     Grid.Row="1"
                     Grid.Column="0"/>
             <ToggleButton
                     Style="{StaticResource h2BattleToggleBtn}"
                     x:Uid="BtnGear"
-                    IsChecked="{x:Bind ViewModel.bUseGear, Mode=TwoWay}"
+                    IsChecked="{x:Bind ViewModel.UseGear, Mode=TwoWay}"
                     Grid.Row="1"
                     Grid.Column="1"/>
             <Button
@@ -184,14 +184,14 @@
             <Viewbox x:Name="MunchkinStrength" Grid.Row="2" Grid.ColumnSpan="4" HorizontalAlignment="Left">
             <TextBlock Style="{StaticResource h2BattleTextBlock}" Grid.Row="2"  Grid.ColumnSpan="4">
                 <Run x:Uid="Munchkin"/>
-                <Run Text="{x:Bind ViewModel.nMunchkinPowerMod, Mode=OneWay, Converter={StaticResource Texts}, ConverterParameter=signedinteger}"/>
+                <Run Text="{x:Bind ViewModel.MunchkinPowerMod, Mode=OneWay, Converter={StaticResource Texts}, ConverterParameter=signedinteger}"/>
             </TextBlock>
             </Viewbox>
             <Viewbox x:Name="Strength" Grid.Row="3" Grid.ColumnSpan="4">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3" Grid.ColumnSpan="4">
-                    <TextBlock Text="{x:Bind ViewModel.nMunchkinPower, Mode=OneWay}" Style="{StaticResource h1BattleTextBlock}" x:Name="Munchkin_Power" Grid.Row="5" Grid.Column="1" Loaded="ChangeBattlePowerSizes"/>
+                    <TextBlock Text="{x:Bind ViewModel.MunchkinPower, Mode=OneWay}" Style="{StaticResource h1BattleTextBlock}" x:Name="Munchkin_Power" Grid.Row="5" Grid.Column="1" Loaded="ChangeBattlePowerSizes"/>
                     <TextBlock Style="{StaticResource h2BattleTextBlock}" x:Uid="vs" Margin="20,0,20,0" Grid.Row="5" Grid.Column="2"/>
-                    <TextBlock Style="{StaticResource h1BattleTextBlock}" x:Name="Monster_Power" Text="{x:Bind ViewModel.nMonsterPower, Mode=OneWay}" Grid.Row="5" Grid.Column="3" Loaded="ChangeBattlePowerSizes"/>
+                    <TextBlock Style="{StaticResource h1BattleTextBlock}" x:Name="Monster_Power" Text="{x:Bind ViewModel.MonsterPower, Mode=OneWay}" Grid.Row="5" Grid.Column="3" Loaded="ChangeBattlePowerSizes"/>
                 </StackPanel>
             </Viewbox>
             <Viewbox x:Name="MonsterStrength" Grid.Row="4" Grid.ColumnSpan="4" HorizontalAlignment="Right">

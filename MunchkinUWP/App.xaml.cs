@@ -1,9 +1,8 @@
 ﻿using MunchkinUWP.IO;
 using MunchkinUWP.Model;
 using System;
-using TLIB_UWPFRAME.IO;
-using TLIB_UWPFRAME.Model;
-using TLIB_UWPFRAME.Settings;
+using TAPPLICATION.IO;
+using TAPPLICATION.Model;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Core;
@@ -24,8 +23,14 @@ namespace MunchkinUWP
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
-        public App()
+        internal App()
         {
+            TLIB.PlatformHelper.ModelHelper.Platform = new TLIB.Code.Uwp.UwpModelHelper();
+            TLIB.PlatformHelper.StringHelper.Platform = new TLIB.Code.Uwp.UwpStringHelper();
+
+            TAPPLICATION.IO.SharedIO.CurrentIO = new TLIB.Code.Uwp.UwpIO();
+            TAPPLICATION.Model.SharedSettingsModel.PlatformSettings = new TLIB.Code.Uwp.UwpSettings();
+
             AppModel.Initialize();
             SettingsModel.Initialize();
             this.InitializeComponent();
@@ -33,12 +38,11 @@ namespace MunchkinUWP
             _displayRequest.RequestActive();
             this.Suspending += OnSuspending;
             this.UnhandledException += App_UnhandledExceptionAsync;
+            UnhandledException += App_UnhandledExceptionAsync;
 
-            SharedSettingsModel.Instance.ORDNERMODE = false;
-            SharedSettingsModel.Instance.InternSync = true;
-            SharedSettingsModel.Instance.InternSync = true;
+            SharedSettingsModel.Instance.FOLDERMODE = false;
+            SharedSettingsModel.Instance.INTERN_SYNC = true;
         }
-        
         // Startup ############################################################
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
@@ -55,19 +59,16 @@ namespace MunchkinUWP
 #endif
             try
             {
-                AppModel.Instance.MainObject = await AppModelIO.LoadAtCurrentPlace(Constants.SAVE_GAME);
+                AppModel.Instance.MainObject = await AppModelIO.LoadGame();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 AppModel.Instance.MainObject = new Game();
             }
 
-
-            Frame rootFrame = Window.Current.Content as Frame;
-
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
-            if (rootFrame == null)
+            if (!(Window.Current.Content is Frame rootFrame))
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
@@ -121,7 +122,7 @@ namespace MunchkinUWP
             var deferral = e.SuspendingOperation.GetDeferral();
             try
             {
-                await AppModelIO.SaveAtCurrentPlace(AppModel.Instance.MainObject);
+                await AppModelIO.SaveGame();
             }
             catch (Exception)
             {
@@ -131,11 +132,12 @@ namespace MunchkinUWP
         }
 
         // Exception Handling #################################################
-        async void App_UnhandledExceptionAsync(object sender, UnhandledExceptionEventArgs e)
+
+
+        async void App_UnhandledExceptionAsync(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
         {
-            this.UnhandledException -= App_UnhandledExceptionAsync;
             e.Handled = true;
-            await AppModelIO.Save(AppModel.Instance.MainObject);
+            await AppModelIO.SaveGame();
             AppModel.Instance.lstNotifications.Add(new Notification(("Notification_Error_Unknown"), e.Exception));
             Current.Exit();
         }

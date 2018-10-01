@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using TLIB_UWPFRAME;
+using TLIB.PlatformHelper;
 
 namespace MunchkinUWP.Model
 {
@@ -13,179 +9,179 @@ namespace MunchkinUWP.Model
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public override string ToString()
         {
-            return this._strName + " " + this._nLevel + " " + this._nPower;
+            return this._Name + " " + this._Level + " " + this._Power;
         }
 
-        public Munchkin(string Name, int Level, int Gear, int ordering, eGenderTyp Gender = 0, string Notes = "")
+        internal Munchkin(string Name, int Level, int Gear, int ordering, GenderTyp Gender = 0, string Notes = "")
         {
-            strName = Name;
-            nLevel = Level;
-            nGear = Gear;
-            strNotes = Notes;
-            nOrder = ordering;
-            eGender = Gender;
+            this.Name = Name;
+            this.Level = Level;
+            this.Gear = Gear;
+            this.Notes = Notes;
+            Order = ordering;
+            this.Gender = Gender;
         }
-        public Munchkin()
+        internal Munchkin()
         {
 
         }
 
-        private int _nLevel = 1;
-        public int nLevel
+        int _Level = 1;
+        public int Level
         {
-            get { return _nLevel; }
+            get { return _Level; }
             set
             {
-                if (value != _nLevel)
+                if (value != _Level)
                 {
-                    if (SettingsModel.I.GAMEWARNINGS && _nLevel < value && value >= SettingsModel.I.GAMEWARNINGS_LEVEL)
+                    if (SettingsModel.I.GAMEWARNINGS && _Level < value && value >= SettingsModel.I.GAMEWARNINGS_LEVEL)
                     {
                         ;
-                        AppModel.Instance.NewNotification(CrossPlatformHelper.GetString("Attention") +", " + _strName + " "+ CrossPlatformHelper.GetString("is")+" "+CrossPlatformHelper.GetString("Munchkin_Level/Text") +" " + value + "!");
+                        AppModel.Instance.NewNotification(StringHelper.GetString("Attention") +", " + _Name + " "+ StringHelper.GetString("is")+" "+StringHelper.GetString("Munchkin_Level/Text") +" " + value + "!");
                     }
-                    _nLevel = value;
-                    nPower = nLevel + nGear;
-                    bHasWon = _nLevel >= 10 ? true : false;
+                    _Level = value;
+                    Power = Level + Gear;
+                    HasWon = _Level >= 10 ? true : false;
                     NotifyPropertyChanged();
                 }
             }
         }
-        private int _nGear = 0;
-        public int nGear
+        int _Gear = 0;
+        public int Gear
         {
-            get { return _nGear; }
+            get { return _Gear; }
             set
             {
-                if (value != _nGear)
+                if (value != _Gear)
                 {
-                    _nGear = value;
-                    nPower = nLevel + nGear;
+                    _Gear = value;
+                    Power = Level + Gear;
                     NotifyPropertyChanged();
                 }
             }
         }
-        private int _nPower = 0;
-        public int nPower
+        int _Power = 0;
+        public int Power
         {
-            get { _nPower = nLevel + nGear;  return _nPower; }
+            get { _Power = Level + Gear;  return _Power; }
             set
             {
-                if (value != _nPower)
+                if (value != _Power)
                 {
-                    _nPower = value;
+                    _Power = value;
                     NotifyPropertyChanged();
                 }
             }
         }
 
-        private string _strName = "";
-        public string strName
+        string _Name = "";
+        public string Name
         {
-            get { return _strName; }
+            get { return _Name; }
             set
             {
-                if (value != _strName)
+                if (value != _Name)
                 {
-                    _strName = value;
+                    _Name = value;
                     NotifyPropertyChanged();
                 }
             }
         }
 
-        public enum eGenderTyp {
+        public enum GenderTyp {
             m = 1,
             w = 2,
             s = 3
         }
 
-        private eGenderTyp _eGender = eGenderTyp.s;
-        public eGenderTyp eGender
+        GenderTyp _Gender = GenderTyp.s;
+        public GenderTyp Gender
         {
-            get { return _eGender; }
+            get { return _Gender; }
             set
             {
-                if (value != _eGender)
+                if (value != _Gender)
                 {
-                    _eGender = value;
+                    _Gender = value;
                     NotifyPropertyChanged();
                 }
             }
         }
-        private int _nOrder;
-        public int nOrder
+        int _Order;
+        public int Order
         {
-            get { return _nOrder; }
+            get { return _Order; }
             set
             {
-                if (value != _nOrder)
+                if (value != _Order)
                 {
-                    _nOrder = value;
+                    _Order = value;
                     NotifyPropertyChanged();
                 }
             }
         }
-        private string _strNotes = "";
-        public string strNotes
+        string _Notes = "";
+        public string Notes
         {
-            get { return _strNotes; }
+            get { return _Notes; }
             set
             {
-                if (value != _strNotes)
+                if (value != _Notes)
                 {
-                    _strNotes = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }
-
-        private bool _bIsBattle = false;
-        public bool bIsBattle
-        {
-            get { return _bIsBattle; }
-            set
-            {
-                if (value != _bIsBattle)
-                {
-                    _bIsBattle = value;
+                    _Notes = value;
                     NotifyPropertyChanged();
                 }
             }
         }
 
-        private bool _bHasWon = false;
-        public bool bHasWon
+        bool _IsBattle = false;
+        public bool IsBattle
         {
-            get { return _bHasWon; }
+            get { return _IsBattle; }
             set
             {
-                if (value != _bHasWon)
+                if (value != _IsBattle)
                 {
-                    _bHasWon = value;
+                    _IsBattle = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        bool _HasWon = false;
+        public bool HasWon
+        {
+            get { return _HasWon; }
+            set
+            {
+                if (value != _HasWon)
+                {
+                    _HasWon = value;
                     NotifyPropertyChanged();
                 }
             }
         }
         
-        public void ClearForNewGame()
+        internal void ClearForNewGame()
         {
-            this.bIsBattle = false;
-            this.strNotes = "";
-            this.nGear = 0;
-            this.nLevel = 1;
-            this.nPower = 1;
+            this.IsBattle = false;
+            this.Notes = "";
+            this.Gear = 0;
+            this.Level = 1;
+            this.Power = 1;
         }
-        public void Clear()
+        internal void Clear()
         {
             ClearForNewGame();
-            this.strName = "";
-            this.eGender = eGenderTyp.s;
+            this.Name = "";
+            this.Gender = GenderTyp.s;
         }
     }
 }

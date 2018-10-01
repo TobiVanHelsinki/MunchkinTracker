@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+<!DOCTYPE svg internal "-//W3C//DTD SVG 20010904//EN"
 "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
 <!-- Created with Inkscape (http://www.inkscape.org/) --><svg height="400.00000pt" id="svg1" inkscape:version="0.39" sodipodi:docbase="/home/nicu/Desktop" sodipodi:docname="sword.svg" sodipodi:version="0.32" width="400.00000pt" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:xlink="http://www.w3.org/1999/xlink">
   <metadata>
@@ -32,10 +32,10 @@
         <dc:date></dc:date>
         <dc:format>image/svg+xml</dc:format>
         <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-        <cc:license rdf:resource="http://web.resource.org/cc/PublicDomain"/>
+        <cc:license rdf:resource="http://web.resource.org/cc/internalDomain"/>
         <dc:language>en</dc:language>
       </cc:Work>
-      <cc:License rdf:about="http://web.resource.org/cc/PublicDomain">
+      <cc:License rdf:about="http://web.resource.org/cc/internalDomain">
         <cc:permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
         <cc:permits rdf:resource="http://web.resource.org/cc/Distribution"/>
         <cc:permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/>

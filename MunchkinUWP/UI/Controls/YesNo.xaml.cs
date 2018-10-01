@@ -4,10 +4,10 @@
 
 namespace MunchkinUWP.UI.Controls
 {
-    public sealed partial class YesNo : ContentDialog
+    internal sealed partial class YesNo : ContentDialog
     {
         string tempDisplayText = "";
-        public YesNo(string i_string)
+        internal YesNo(string i_string)
         {
             this.InitializeComponent();
             tempDisplayText = i_string;

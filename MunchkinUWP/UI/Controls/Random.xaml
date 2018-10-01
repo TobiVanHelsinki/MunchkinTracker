@@ -159,6 +159,6 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <ContentPresenter Width="100" Height="100" x:Name="Dice" Tapped="Dice_Tapped" Style="{StaticResource DiceStyle}" Loaded="Dice_Loaded"/>
-        <TextBox Margin="30,0,0,0" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" x:Name="RandomCount" Style="{StaticResource InputBox}" Text="{x:Bind Model.nRandomMax, Mode=TwoWay}" InputScope="Digits"/>
+        <TextBox Margin="30,0,0,0" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" x:Name="RandomCount" Style="{StaticResource InputBox}" Text="{x:Bind Model.RandomMax, Mode=TwoWay}" InputScope="Digits"/>
     </Grid>
 </ContentDialog>

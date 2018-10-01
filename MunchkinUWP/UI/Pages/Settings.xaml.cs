@@ -1,43 +1,42 @@
 ﻿using MunchkinUWP.Model;
 using MunchkinUWP.UI.Controls;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using TAPPLICATION;
 using Windows.ApplicationModel.Contacts;
 using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Foundation.Metadata;
 using Windows.Storage;
+using Windows.System.RemoteSystems;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using TLIB_UWPFRAME;
-using System.Collections.ObjectModel;
-using Windows.System.RemoteSystems;
-using System.Collections.Generic;
-using TLIB_UWPFRAME.Model;
 
 namespace MunchkinUWP.Pages
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class SettingsPage : Page
+    internal sealed partial class SettingsPage : Page
     {
         Game ViewModel = AppModel.Instance.MainObject;
         readonly SettingsModel Settings = SettingsModel.Instance;
         readonly AppModel Model = AppModel.Instance;
-        readonly string eMail = Constants.APP_CONTACT_MAIL;
-        readonly string Inhaber = Constants.AUTHOR;
-        readonly string AppVersionBuild = Constants.APP_VERSION_BUILD_DELIM;
-        readonly string AppReviewLink = Constants.APP_STORE_REVIEW_LINK;
-        readonly string AppKontaktEmail = Constants.APP_CONTACT_MAILTO;
-        readonly string MoreAppsLink = Constants.APP_MORE_APPS;
-        readonly string AppLink = Constants.APP_STORE_LINK;
+        readonly string eMail = SharedConstants.APP_PUBLISHER_MAIL;
+        readonly string Inhaber = SharedConstants.APP_PUBLISHER;
+        readonly string AppVersionBuild = SharedConstants.APP_VERSION_BUILD_DELIM;
+        readonly string AppReviewLink = SharedConstants.APP_STORE_REVIEW_LINK;
+        readonly string AppKontaktEmail = SharedConstants.APP_PUBLISHER_MAILTO;
+        readonly string MoreAppsLink = SharedConstants.APP_MORE_APPS;
+        readonly string AppLink = SharedConstants.APP_STORE_LINK;
         readonly List<HelpEntry> Help = Constants.HelpList;
 
-        public SettingsPage()
+        internal SettingsPage()
         {
             this.RequestedTheme = SettingsModel.Instance.THEME;
             this.InitializeComponent();
@@ -245,8 +244,8 @@ namespace MunchkinUWP.Pages
         {
         }
         // ROME ###############################################################
-        public Dictionary<string, RemoteSystem> DeviceMap = new Dictionary<string, RemoteSystem>();
-        public ObservableCollection<RemoteSystem> DeviceList = new ObservableCollection<RemoteSystem>();
+        internal Dictionary<string, RemoteSystem> DeviceMap = new Dictionary<string, RemoteSystem>();
+        internal ObservableCollection<RemoteSystem> DeviceList = new ObservableCollection<RemoteSystem>();
         private RemoteSystemWatcher m_remoteSystemWatcher;
         private void SearchCleanup()
         {

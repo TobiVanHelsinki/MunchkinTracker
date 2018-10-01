@@ -2,10 +2,11 @@
     x:Class="MunchkinUWP.Pages.SettingsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:TLIBModel="using:TLIB_UWPFRAME.Model"
+    xmlns:TLIBModel="using:TAPPLICATION.Model"
     xmlns:System="using:System"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="using:MunchkinUWP.Model"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
@@ -27,9 +28,9 @@
             </DataTemplate>
             <DataTemplate x:Name="Notification" x:DataType="TLIBModel:Notification">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{x:Bind DateTime}"/>
+                    <TextBlock Text="{x:Bind ShownTime}"/>
                     <TextBlock x:Uid="Doppelpunkt"/>
-                    <TextBlock Text="{x:Bind strMessage}"/>
+                    <TextBlock Text="{x:Bind Message}"/>
                 </StackPanel>
             </DataTemplate>
             <DataTemplate x:Name="NotificationX" x:DataType="TLIBModel:Notification">
@@ -157,7 +158,7 @@
                 </PivotItem.Header>
                 <ListView ItemsSource="{x:Bind Help, Mode=OneWay}">
                     <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="TLIBModel:HelpEntry">
+                        <DataTemplate x:DataType="model:HelpEntry">
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Margin="0,10,0,5" FontWeight="Bold" Text="{x:Bind Paragraph}"/>
                                 <TextBlock TextWrapping="Wrap" Text="{x:Bind Text}"/>

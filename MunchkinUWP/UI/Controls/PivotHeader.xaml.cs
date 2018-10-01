@@ -6,21 +6,21 @@ using Windows.UI.Xaml.Shapes;
 
 namespace MunchkinUWP.UI.Controls
 {
-    public sealed partial class PivotHeader : UserControl
+    internal sealed partial class PivotHeader : UserControl
     {
-        public PivotHeader()
+        internal PivotHeader()
         {
             this.InitializeComponent();
         }
 
-        public string CustName
+        internal string CustName
         {
             get { return (string)GetValue(CustNameProperty); }
             set { SetValue(CustNameProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for CustName.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty CustNameProperty =
+        internal static readonly DependencyProperty CustNameProperty =
             DependencyProperty.Register("CustName", typeof(string), typeof(PivotHeader), null);
 
         private void HeaderPath_Loaded(object sender, RoutedEventArgs e)

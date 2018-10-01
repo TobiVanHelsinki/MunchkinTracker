@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using TLIB_UWPFRAME;
-using TLIB_UWPFRAME.IO;
+using TAPPLICATION;
+using TAPPLICATION.IO;
+using TLIB.Code.Uwp;
+using TLIB.IO;
+using TLIB.PlatformHelper;
 using Windows.Storage;
 using Windows.UI.Xaml.Controls;
 
@@ -10,10 +13,10 @@ using static MunchkinUWP.Model.Sound;
 
 namespace MunchkinUWP.IO
 {
-    public partial class SoundBoardIO
+    internal partial class SoundBoardIO
     {
-        public const string SoundFolder = "Assets\\Sounds\\";
-        public static async void PlaySound(eSoundName sound)
+        internal const string SoundFolder = "Assets\\Sounds\\";
+        internal static async void PlaySound(eSoundName sound)
         {
             string FileToPlay;
             switch (sound)
@@ -39,14 +42,14 @@ namespace MunchkinUWP.IO
             Windows.Storage.StorageFile SoundFile;
             try
             {
-                SoundFile = await WinIO.GetFile(new FileInfoClass()
+                SoundFile = await UwpIO.GetFile(new FileInfoClass()
                 {
                     Fileplace = Place.Assets,
                     Filename = FileToPlay,
-                    Filepath = CrossPlatformHelper.GetPrefix(CrossPlatformHelper.PrefixType.AppPackageData) + SoundFolder
+                    Filepath = StringHelper.GetPrefix(PrefixType.AppPackageData) + SoundFolder
                 }, eUser: UserDecision.ThrowError, eCreation: FileNotFoundDecision.NotCreate);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return;
             }

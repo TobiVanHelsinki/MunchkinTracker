@@ -1,16 +1,16 @@
 ﻿using MunchkinUWP.Model;
-using TLIB_UWPFRAME;
+using TAPPLICATION;
 using Windows.Security.Cryptography;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 
 namespace MunchkinUWP.UI.Controls
 {
-    public sealed partial class Random : ContentDialog
+    internal sealed partial class Random : ContentDialog
     {
         Game Model = AppModel.Instance.MainObject;
         private uint _nRandomResult;
-        public uint nRandomResult
+        internal uint nRandomResult
         {
             get
             {
@@ -24,7 +24,7 @@ namespace MunchkinUWP.UI.Controls
         }
 
 
-        public Random()
+        internal Random()
         {
             this.InitializeComponent();
         }
@@ -39,7 +39,7 @@ namespace MunchkinUWP.UI.Controls
         {
             try
             {
-                ShowDice(Model.lstStatistics[Model.lstStatistics.Count-1].nResult);
+                ShowDice(Model.Statistics[Model.Statistics.Count-1].nResult);
             }
             catch (System.Exception)
             {
@@ -62,11 +62,11 @@ namespace MunchkinUWP.UI.Controls
             while (nRandomResult == 0 && nMaxTries < Constants.STD_RANDOMMAXTRIES)
             {
                 nRandomResult = CryptographicBuffer.GenerateRandomNumber();
-                nRandomResult = nRandomResult % ((uint)Model.nRandomMax + 1);
+                nRandomResult = nRandomResult % ((uint)Model.RandomMax + 1);
                 nMaxTries++;
             }
             ShowDice(nRandomResult);
-            Model.lstStatistics.Add(new RandomResult(nRandomResult, 0));
+            Model.Statistics.Add(new RandomResult(nRandomResult, 0));
         }
 
         void ShowDice(uint nRandomResult)
